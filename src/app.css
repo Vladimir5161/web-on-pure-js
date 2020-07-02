@@ -1,0 +1,14 @@
+.wrapper {
+    max-width: 1170px;
+    display: grid;
+    margin: 0 auto;
+    text-align: center;
+    padding: 40px 20px;
+    height: 100vh;
+
+}
+.app {
+    display: grid;
+    margin: 0 auto;
+    text-align: center;
+}
