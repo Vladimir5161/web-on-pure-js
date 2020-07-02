@@ -1,0 +1,197 @@
+
+.educationText {
+    margin: 20px;
+    font-size: 18px;
+    font-family: 'Dancing Script', cursive;
+    font-style: italic;
+    font-weight: 50;
+}
+.educationImg {
+    position: relative;
+    z-index: 40;
+}
+.educationImg, .educationImgClosed {
+    width: 300px;
+    max-height: 150px;
+    border-radius: 15px;
+}
+.educationImg:hover{
+    cursor: pointer;
+    transform: perspective(400px) rotate3d(1, 0, 0.2, 30deg) ;
+    transition: 1s;
+}
+ .educationImageBlock:hover::after {
+    display: block;
+    content: attr(data-title); /* Выводим текст */
+    position: absolute; /* Абсолютное позиционирование */
+    left: 50%; top: 40%; /* Положение подсказки */
+    z-index: 70; /* Отображаем подсказку поверх других элементов */
+    background: rgba(255,255,230,0.9); /* Полупрозрачный цвет фона */
+    font-family: Arial, sans-serif; /* Гарнитура шрифта */
+    font-size: 11px; /* Размер текста подсказки */
+    padding: 5px 10px; /* Поля */
+    border: 1px solid #333; /* Параметры рамки */
+   }
+
+.educationImgOpened:hover {
+    cursor: pointer;
+}
+.educationImgBase {
+    display: none;
+}
+.educationImgClosed {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    z-index: 10;
+    transform: perspective(0) rotate3d(0, 0, 0, 0) ;
+    animation: educationImgClosed 1s;
+    
+}
+@keyframes educationImgClosed {
+    0% {
+        opacity: 1;
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        height: auto;
+        width: 80vw;
+        max-width: 1170px;
+    }
+    100% {
+        opacity: 0;
+        transform: perspective(0) rotate3d(0, 0, 0, 0) ;
+        width: 300px;
+        max-height: 150px;
+    }
+}
+
+.educationImgOpened {
+    display: block;
+    position: fixed;
+    z-index: 60;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    right: 0;
+    border-radius: 15px;
+    margin: 0 auto;
+    height: auto;
+    width: 80vw;
+    max-width: 1170px;
+    animation: educationImgOpened 1s;
+    overflow: hidden;
+}
+@keyframes educationImgOpened {
+    0% {
+        opacity: 0;
+        position: fixed;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        height: auto;
+        width: 300px;
+        max-height: 150px;
+    }
+    100% {
+        display: block;
+        position: fixed;
+        z-index: 60;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        right: 0;
+        border-radius: 15px;
+        margin: 0 auto;
+        height: auto;
+        width: 80vw;
+        max-width: 1170px;
+    }
+}
+
+#education {
+    position: relative;
+    animation: Ani 3s;
+    
+}
+@keyframes Ani {
+    0% {
+        position: relative;
+        right: -1500px;
+    }
+    100% {
+        position: relative;
+        right: 0;
+    }
+}
+.educationImageBlock {
+    position: relative;
+}
+
+@media screen and (max-width: 425px) {
+    .educationImgOpened {
+        width: 96vw;
+    }
+    @keyframes educationImgOpened {
+        0% {
+            opacity: 0;
+            position: fixed;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            height: auto;
+            width: 300px;
+            max-height: 150px;
+        }
+        100% {
+            display: block;
+            position: fixed;
+            z-index: 60;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            right: 0;
+            border-radius: 15px;
+            margin: 0 auto;
+            height: auto;
+            width: 96vw;
+            max-width: 1170px;
+        }
+    }
+}
+@media screen and (max-width: 325px) {
+    .educationImgOpened {
+        width: 99vw;
+    }
+    @keyframes educationImgOpened {
+        0% {
+            opacity: 0;
+            position: fixed;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            height: auto;
+            width: 300px;
+            max-height: 150px;
+        }
+        100% {
+            display: block;
+            position: fixed;
+            z-index: 60;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            right: 0;
+            border-radius: 15px;
+            margin: 0 auto;
+            height: auto;
+            width: 99vw;
+            max-width: 1170px;
+        }
+    }
+}

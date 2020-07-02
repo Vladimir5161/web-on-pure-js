@@ -5,10 +5,13 @@
     text-align: center;
     padding: 40px 20px;
     height: 100vh;
-
+    position: relative;
+    z-index: 10;
 }
 .app {
     display: grid;
     margin: 0 auto;
     text-align: center;
+    position: relative;
+    
 }

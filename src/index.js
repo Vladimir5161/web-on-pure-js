@@ -3,7 +3,7 @@ import "./header.css"
 import "./main.css"
 import "./app.css"
 import { Skill } from './pages/skills/Skill'
-import { Education } from "./pages/skills/education/Education"
+import { Education } from "./pages/education/Education"
 
 
 let header = document.getElementById("header-nav")
@@ -123,7 +123,7 @@ let htmlMain = ` <div class="main-div">
 
 
 
-let htmlEducation = `<div>
+let htmlEducation = `<div class="educations">
                         <div class="currentH1">My education</div>
                         <div id="education">
                             ${Education.render()}
