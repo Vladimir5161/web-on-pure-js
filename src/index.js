@@ -5,6 +5,7 @@ import "./app.css"
 import { Skill } from './pages/skills/Skill'
 import { Education } from "./pages/education/Education"
 import { Experiance } from './pages/experiance/Experiance'
+import { Settings } from './pages/settings/Settings'
 
 
 let header = document.getElementById("header-nav")
@@ -38,22 +39,31 @@ MenuBtn.addEventListener('click', (event) => {
 const menuLink = header.querySelectorAll(".nav-link");
 
 const wrappedMain = main.querySelector('.wrapper')
-const changePathname = (currPage, html) => { // string value of last opened page, 
 
-    wrappedMain.innerHTML = html;
-    setCurrentPage(currPage)
-    if (header.id === "header-nav-opened" || header.id === "header-nav") {
-        closeMenu()
-    } else (setTimeout(() => { closeMenu() }, 500))
-
-} // function to change local address and to set html that needed on page
-
+const getCurrentTheme = () => {
+    return JSON.parse(localStorage.getItem("theme"))
+}
 const setCurrentPage = (currPage) => {
     localStorage.setItem("page", JSON.stringify(currPage)) //saving a string ref to a  last opened page without changing page's hash to a local storage
 }
 const getCurrentPage = () => {
     return JSON.parse(localStorage.getItem("page"))
 }
+const CloseMenuFunc = () => {
+    if (header.id === "header-nav-opened" || header.id === "header-nav") {
+        closeMenu()
+    } else (setTimeout(() => { closeMenu() }, 500))
+}
+const changePathname = (currPage, html) => { // string value of last opened page, 
+    wrappedMain.innerHTML = html;
+    setCurrentPage(currPage)
+    const theme = getCurrentTheme()
+    setTheme(theme)
+    CloseMenuFunc()
+
+} // function to change local address and to set html that needed on page
+
+
 menuLink.forEach(element => {
     element.addEventListener('click', (event) => {
         event.preventDefault()
@@ -68,11 +78,36 @@ menuLink.forEach(element => {
         } else if (element.textContent === "My skills") {
             changePathname("/mySkills", htmlSkills)
         } else if (element.textContent === "Settings") {
-            changePathname("/settings", htmlSetting)
+            const modalWindow = main.querySelector(".modalWindowDiv")
+            if (main.contains(modalWindow)) {
+                Settings.closeModal(),
+                    CloseMenuFunc()
+            } else {
+                Settings.openModal()
+                CloseMenuFunc()
+            }
         }
     });
 }); // function calls prev func with props
 
+
+const setTheme = (theme) => {
+    if (theme === "black") {
+        main.style.backgroundColor = "rgba(0,0,0, 0.9)"
+        main.style.color = "white"
+        const WorkExpBlock = main.querySelectorAll(".workExpBlock")
+        for (let item of WorkExpBlock) {
+            item.style.color = "white"
+        }
+    } else {
+        main.style.backgroundColor = "white"
+        main.style.color = "black"
+        const WorkExpBlock = main.querySelectorAll(".workExpBlock")
+        for (let item of WorkExpBlock) {
+            item.style.color = "black"
+        }
+    }
+}
 
 window.addEventListener('load', async (event) => {
     const currentPage = await getCurrentPage()
@@ -82,7 +117,10 @@ window.addEventListener('load', async (event) => {
                 currentPage === "/settings" ? htmlSetting :
                     htmlMain
 
+    const theme = await getCurrentTheme()
+    setTheme(theme)
     changePathname(currentPage, currentHTML)
+
 }) // loads default html 
 
 
@@ -137,9 +175,6 @@ let htmlExperience = `<div class="experiance">
                             ${Experiance.render()}
                         </div>
                     </div>`
-
-let htmlSetting = `<h1>settings</h1>`
-
 
 
 let htmlSkills = `<div class="skills">
