@@ -6,6 +6,14 @@
     font-style: italic;
     font-weight: 50;
 }
+.educationName {
+    text-align: left;
+    margin: 15px;
+    font-size: 22px;
+    font-family: 'Dancing Script', cursive;
+    font-style: italic;
+    font-weight: 50;
+}
 .educationImg {
     position: relative;
     z-index: 40;
@@ -19,6 +27,9 @@
     cursor: pointer;
     transform: perspective(400px) rotate3d(1, 0, 0.2, 30deg) ;
     transition: 1s;
+}
+.showInfoImageDiv:hover {
+    cursor: pointer;
 }
  .showInfoImageDiv:hover::after {
     display: block;
@@ -136,13 +147,17 @@
 
 #education {
     position: relative;
-    animation: Ani 3s;
+    animation: Ani 1.5s;
     
 }
 @keyframes Ani {
     0% {
         position: relative;
         right: -1500px;
+    }
+    50% {
+        position: relative;
+        right: -1450px;
     }
     100% {
         position: relative;

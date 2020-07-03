@@ -4,6 +4,7 @@
     width: 100%;
     display: block;
     box-shadow: inset 0 0 20px 10px rgb(178,179,168);
+    overflow: auto;
 }
 .main-div {
     position: relative;
@@ -32,9 +33,9 @@
 }
 .blockImage {
     display: block;
-    margin: 15px 15px 15px 30px;
+    margin: 15px 15px 15px 0;
     height:200px;
-    width: 140px;
+    width: 160px;
 
     float: left;
 }
@@ -50,6 +51,7 @@
     text-align: justify;
     font-size: 18px;
     line-height: 25px;
+    word-break: break-word;
 }
 
 .currentH1 {

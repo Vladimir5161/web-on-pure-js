@@ -4,6 +4,7 @@ import "./main.css"
 import "./app.css"
 import { Skill } from './pages/skills/Skill'
 import { Education } from "./pages/education/Education"
+import { Experiance } from './pages/experiance/Experiance'
 
 
 let header = document.getElementById("header-nav")
@@ -130,7 +131,12 @@ let htmlEducation = `<div class="educations">
                         </div>
                     </div>`
 
-let htmlExperience = `<h1>experiance</h1>`
+let htmlExperience = `<div class="experiance">
+                        <div class="currentH1">My current Experiance</div>
+                        <div id="experiance">
+                            ${Experiance.render()}
+                        </div>
+                    </div>`
 
 let htmlSetting = `<h1>settings</h1>`
 
