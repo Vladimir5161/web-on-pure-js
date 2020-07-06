@@ -95,9 +95,21 @@ const setTheme = (theme) => {
     if (theme === "black") {
         main.style.backgroundColor = "rgba(0,0,0, 0.9)"
         main.style.color = "white"
+        const imageInfo = main.querySelectorAll(".showInfoImageDiv")
+        for (let item of imageInfo) {
+            item.style.color = "black"
+        }
         const WorkExpBlock = main.querySelectorAll(".workExpBlock")
         for (let item of WorkExpBlock) {
             item.style.color = "white"
+        }
+        const skillsContent = main.querySelectorAll(".skillDivContent")
+        const skillsContentBack = main.querySelectorAll(".skillDivContentBack")
+        for (let item of skillsContent) {
+            item.style.color = "rgba(0,0,0, 0.9)"
+        }
+        for (let item of skillsContentBack) {
+            item.style.color = "rgba(0,0,0, 0.9)"
         }
     } else {
         main.style.backgroundColor = "white"
@@ -106,6 +118,7 @@ const setTheme = (theme) => {
         for (let item of WorkExpBlock) {
             item.style.color = "black"
         }
+
     }
 }
 
@@ -164,7 +177,7 @@ let htmlMain = ` <div class="main-div">
 
 let htmlEducation = `<div class="educations">
                         <div class="currentH1">My education</div>
-                        <div id="education">
+                        <div id="education" >
                             ${Education.render()}
                         </div>
                     </div>`
