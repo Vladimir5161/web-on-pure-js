@@ -1,7 +1,7 @@
 
 import "./skills.css"
 
-let skills = [
+let skillsarr = [
     { id: 1, stars: 4, icon: "https://upload.wikimedia.org/wikipedia/commons/1/1f/Star_Icon.png", name: "JS" },
     { id: 2, stars: 5, icon: "https://freeiconshop.com/wp-content/uploads/edd/html-outline.png", name: "CSS" },
     { id: 3, stars: 5, icon: "https://freeiconshop.com/wp-content/uploads/edd/html-outline.png", name: "HTML" },
@@ -24,8 +24,14 @@ let skills = [
 
 export class Skill {
     static render() {
-        return skills.map(item => {
-
+        const skills = document.createElement('div')
+        skills.className = "skills"
+        const currentH1 = document.createElement('div')
+        currentH1.className = "currentH1"
+        currentH1.innerText = "My current Skills"
+        const skillBlock = document.createElement('div')
+        skillBlock.id = "skillBlock"
+        skillsarr.map(item => {
             const stars = document.createElement("div")
             const starsBack = document.createElement("div")
             for (let i = 0; i < item.stars; i++) {
@@ -58,16 +64,12 @@ export class Skill {
             skillName.innerText = item.name
             skillNameBack.innerText = item.name
             let skillDiv = document.createElement("div")
-            skillDiv.className = "skillDiv"
+            skillDiv.className = "skillDivStart"
 
             let skillDivContentBack = document.createElement("div")
             let skillDivContent = document.createElement("div")
-            skillDiv.appendChild(skillDivContentBack);
-            skillDiv.appendChild(skillDivContent);
-
             skillDivContent.className = "skillDivContent"
             skillDivContentBack.className = "skillDivContentBack"
-
             skillDivContent.appendChild(skillNameBack);
             skillDivContentBack.appendChild(skillName);
             skillDivContent.appendChild(starsBack);
@@ -75,18 +77,26 @@ export class Skill {
             skillDiv.addEventListener("click", () => {
                 item.className = "skillDivAnimation"
             })
-            return skillDiv.outerHTML
-        }).join('')
+            skillDiv.appendChild(skillDivContentBack);
+            skillDiv.appendChild(skillDivContent);
+            skillBlock.appendChild(skillDiv)
+        })
+        skills.appendChild(currentH1)
+        skills.appendChild(skillBlock)
+        return skills.outerHTML
     }
 
 }
 const observeItem = main.querySelector(".wrapper")
 let observer = new MutationObserver((mutationRecords) => {
-    const renderSkill = main.querySelectorAll("#skillBlock")
+    const renderSkill = main.querySelectorAll(".skillDivStart")
     if (mutationRecords[0].addedNodes[0].className === "skills") {
-        for (let item of renderSkill[0].childNodes) {
+        const rend = renderSkill.length
+        for (let i = rend - 1; i < rend && i >= 0; i--) {
+            setTimeout(() => renderSkill[i].className = "skillDiv", 1000 - (i * 50))
+        }
+        for (let item of renderSkill) {
             item.addEventListener("click", () => {
-
                 Object.assign(item, {
                     className: item.className === "skillDivAnimation" ? "skillDivAnimationRotate" : "skillDivAnimation"
                 })
