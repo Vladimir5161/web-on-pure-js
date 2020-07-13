@@ -6,6 +6,8 @@ import { Skill } from './pages/skills/Skill'
 import { Education } from "./pages/education/Education"
 import { Experiance } from './pages/experiance/Experiance'
 import { Settings } from './pages/settings/Settings'
+import { AboutMe } from './pages/aboutMe/AboutMe'
+
 
 
 let header = document.getElementById("header-nav")
@@ -54,12 +56,12 @@ const CloseMenuFunc = () => {
         closeMenu()
     } else (setTimeout(() => { closeMenu() }, 500))
 }
-const changePathname = (currPage, html) => { // string value of last opened page, 
-    wrappedMain.innerHTML = html;
+const changePathname = async (currPage, html) => { // string value of last opened page, 
+    await html()
     setCurrentPage(currPage)
-    const theme = getCurrentTheme()
-    setTheme(theme)
     CloseMenuFunc()
+    const theme = await getCurrentTheme()
+    setTheme(theme)
 
 } // function to change local address and to set html that needed on page
 
@@ -91,17 +93,17 @@ menuLink.forEach(element => {
 }); // function calls prev func with props
 
 
-const setTheme = (theme) => {
+const setTheme = async (theme) => {
     if (theme === "black") {
         main.style.backgroundColor = "rgba(0,0,0, 0.9)"
         main.style.color = "white"
-        const imageInfo = main.querySelectorAll(".showInfoImageDiv")
-        for (let item of imageInfo) {
-            item.style.color = "black"
-        }
         const WorkExpBlock = main.querySelectorAll(".workExpBlock")
         for (let item of WorkExpBlock) {
             item.style.color = "white"
+        }
+        const imageInfo = main.querySelectorAll(".showInfoImageDiv")
+        for (let item of imageInfo) {
+            item.style.color = "black"
         }
         const skillsContent = main.querySelectorAll(".skillDivContent")
         const skillsContentBack = main.querySelectorAll(".skillDivContentBack")
@@ -130,73 +132,68 @@ window.addEventListener('load', async (event) => {
                 currentPage === "/settings" ? htmlSetting :
                     htmlMain
 
-    const theme = await getCurrentTheme()
-    setTheme(theme)
     changePathname(currentPage, currentHTML)
+
+
 
 }) // loads default html 
 
 
 
 
-let htmlMain = ` <div class="main-div">
-<h1 class="title">Vladimir Vagaev</h1>
-<div class="row">
-    <img alt="" src="/src//common/images/me.jpg" class="blockImage" />
-    <div class="text-block">Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio labore sit
-        ullam, ipsa delectus dicta aut in voluptatibus hic ex dolore voluptates sint cumque quas omnis
-        tempore? Voluptatibus, sit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium
-        delectus placeat laborum, libero beatae velit minus veniam ducimus quam totam veritatis rerum
-        enim
-        assumenda sed ipsum neque, sapiente quibusdam suscipit! Lorem ipsum dolor sit amet consectetur,
-        adipisicing elit. Reprehenderit aut explicabo, aperiam sapiente soluta cum commodi amet
-        dignissimos
-        nulla laboriosam maxime delectus, voluptas perspiciatis veritatis tenetur deserunt minima
-        ratione
-        corrupti? Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto veniam ut
-        voluptates
-        labore, quam perspiciatis. Sint eum eius expedita enim totam veniam, delectus, quibusdam quidem
-        qui
-        porro recusandae repellendus quia?
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero pariatur unde saepe quam,
-        repellendus cum inventore impedit reprehenderit tempora soluta totam necessitatibus excepturi
-        harum quibusdam. Vel dignissimos inventore culpa maxime!Lorem
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium, nam tenetur eaque ullam
-        dignissimos quisquam illum, similique maxime architecto doloremque, aut voluptatum iste?
-        Provident odio odit labore nobis aliquam nihil.
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, obcaecati atque magnam
-        repudiandae perspiciatis ipsa vero laudantium, nostrum delectus dolores voluptatibus sed placeat
-        numquam. Distinctio provident aspernatur corporis molestiae earum?
-    </div>
-</div>
-</div>`
+
+let htmlMain = async () => {  // this function calls the current page and renders it to the body
+    const result = await AboutMe.render()
+    wrappedMain.innerHTML = result
+}
+
+
+let htmlEducation = () => {
+    const result = Education.render()
+    wrappedMain.innerHTML = result
+}
+
+
+let htmlExperience = async () => {
+    const result = await Experiance.render()
+    wrappedMain.innerHTML = result
+}
 
 
 
-
-
-let htmlEducation = `<div class="educations">
-                        <div class="currentH1">My education</div>
-                        <div id="education" >
-                            ${Education.render()}
-                        </div>
-                    </div>`
-
-let htmlExperience = `<div class="experiance">
-                        <div class="currentH1">My current Experiance</div>
-                        <div id="experiance">
-                            ${Experiance.render()}
-                        </div>
-                    </div>`
-
-
-let htmlSkills = `<div class="skills">
-                    <div class="currentH1">My current Skills</div>
-                    <div id="skillBlock">${Skill.render()}</div>
-                </div>`
+let htmlSkills = () => {
+    const result = Skill.render()
+    wrappedMain.innerHTML = result
+}
 
 
 
 
 
 
+class Animal {
+    constructor(options) {
+        this.name = options.name
+        this.color = options.color
+    }
+    voise() {
+        console.log(this.name + " says " + "bow")
+    }
+}
+
+const dog = new Animal({ name: "jack", color: "black" })
+console.log(dog.voise())
+
+class Cat extends Animal {
+    constructor(options) {
+        super(options)
+        this.hasTail = options.hasTail
+
+
+    }
+    voise() {
+        console.log(this.name + " says " + "mey")
+    }
+}
+const cat = new Cat({ name: "bonapart", color: "grey", hasTail: true })
+console.log(cat.voise())

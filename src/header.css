@@ -1,5 +1,4 @@
 
-
 .app #header-nav, .app #header-nav-active, .app #header-nav-active-reverse, .app #header-nav-opened {
     position: absolute;
     top: 50%;
@@ -80,18 +79,16 @@
     height: 30%;
 }
 .photo {
-    padding: 10px;
-    height: 70%;
-    
-
+    margin: 20px;
+    height: 55%;
+    min-width: 100px;
+    border-radius: 100%;
+    box-shadow:  0 0 40px 10px rgb(178,179,168);
 }
 .navigation-block {
     padding-top: 20px;
-    position: relative;
     z-index: 40;
     height: 60%;
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr ;
     color: white;
     border-bottom: 1px solid black;
 }
@@ -166,6 +163,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+    .photo {
+        min-width: 115px;
     }
 }
 @media screen and (max-width: 375px) {

@@ -1,28 +1,16 @@
 import "./experiance.css"
+import Basic from "../Basic"
 
-const workExp = [
-    {
-        company: "Aviacontant", img: "https://onlinebizfacts.com/wp-content/uploads/2018/12/home-office-setup.jpeg", position: "senior customer support agent, (04.2018 - 04.2019)", responsibilities: "--Advising and informing clients in writing and by phone about the company's services, in Ukrainian, Russian and Englis. --Solving urgent customer requests and problems --Negotiating with airlines and Kiwi.com partners to resolve issues or problems of passengers in favor of the client.", achievments: "-- received the award of the best Support Agent of the Kyiv ofice from Kiwi.com in January.--Received the position of senior agent 3 months after starting work - in March2019 oficially won the competition for the position of team manager (supervisor) of one of the company's departments (back-ofice) (the position was not obtained due to unplanned reduction of the department). --assistance to agents with dificult cases. -- work with problem clients. --- performance of organizational and other duties of the team manager (in his absence, or in case of a large number of requests) "
-    },
-    {
-        company: "Aviacontant", img: "https://cxuniversity.com/wp-content/uploads/2020/03/Remote-Work-Homepage-Banner-1.jpg", position: "Team Leader, (04.2019 - 08.2019)", responsibilities: "--quality control of the department, and control of the implementation of thenecessary indicators, informing the employees of the department about updates in the company's work. --regulation of the work of the discipline department, implementation of the company's processes. --assistance to agents and senior agents in resolving dificult cases and working with problem clients. --work on improving the atmosphere in the team. --reporting on the work of the department, communication with other departments of Kiwi.com, and heads of other departments, respectively.", achievments: "--the position was obtained as a result of winning the competition for the position of his department (customer support). --The reason for the change of place of work - termination of the contract and cooperation of the employer's company Kiwi.com with the company Aviacontact"
-    }
-]
 
-const projects = [
-    {
-        id: 1, projName: "About me Web", projLink: '', img: "/src/common/images/about.png", description: "--Web Page created on vanilla JS", techStack: "--HTML, CSS,--webpack, -- RestAPI, axios, --firebase, --Bootstrap css"
-    },
-    {
-        id: 2, projName: "First web", projLink: 'https://my-vikings.web.app/', img: "/src/common/images/first.png", description: "--the first full web created with React. --it is about Vikings and The Game of Thrones, you can change the content by clicking the MOVIE button. --Read About the Page", techStack: "--HTML, CSS, --React, React Hooks, --Redux, Redux Thunk, -- RestAPI, axios, --firebase, lodash, --Bootstrap css, SlickSlider, --React-Player"
-    },
-    {
-        id: 3, projName: "Tasks", projLink: 'https://tasks-project-12af2.web.app/', img: "/src/common/images/tasks.png", description: "Web on React where you can add, change, delete tasks", techStack: "--HTML, CSS, --React, React Hooks, --Redux, Redux Thunk, -- RestAPI, axios, --firebase,firebase API, lodash, --Material UI, momentJS"
-    }
-]
-
-export class Experiance {
-    static render() {
+export class Experiance extends Basic {
+    static renderExperiance(projects, works) {
+        const experianceDiv = document.createElement('div')
+        experianceDiv.className = "experianceDiv"
+        const currentH1 = document.createElement('div')
+        currentH1.className = "currentH1"
+        currentH1.innerText = "My current Experiance"
+        const experianceId = document.createElement('div')
+        experianceId.id = "experiance"
         const exp = document.createElement("div")
         exp.className = "expDivBlock"
         const workExpBlock = document.createElement("div") // block of works
@@ -42,7 +30,7 @@ export class Experiance {
         exp.appendChild(myProjectsBlock);
 
         ///////////////////////////// Works Block
-        workExp.map(item => {
+        works.map(item => {
             const company = document.createElement("div")
             company.className = "company"
             company.innerText = `Company: ` + item.company
@@ -174,12 +162,15 @@ export class Experiance {
             myProjectsBlock.appendChild(projName)
             myProjectsBlock.appendChild(projectInfoDiv)
         })
-
-
-
-
-
-
-        return exp.outerHTML
+        experianceId.appendChild(exp)
+        experianceDiv.appendChild(currentH1)
+        experianceDiv.appendChild(experianceId)
+        return experianceDiv
+    }
+    static async render() {
+        const projects = await this.getContentApi("projects")
+        const works = await this.getContentApi("works")
+        const result = this.renderExperiance(projects, works)
+        return result.outerHTML
     }
 }
