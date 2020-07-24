@@ -1,5 +1,6 @@
 import "./aboutMe.css"
 import Basic from "../Basic"
+import anime from 'animejs/lib/anime.es.js';
 
 export class AboutMe extends Basic {
     static renderAboutPage(contactsArr) {
@@ -89,6 +90,14 @@ let observer = new MutationObserver((mutationRecords) => {
         for (let i = rend - 1; i < rend && i >= 0; i--) {
             setTimeout(() => render[i].className = "contact", 1000 - (i * 50))
         }
+        const imageAnime = anime({
+            targets: '.blockImage',
+            boxShadow: '0 0 10px 10px red',
+            autoplay: false,
+            duration: 1000
+        });
+        main.querySelector(".blockImage").onclick = imageAnime.restart;
+
     }
 
 });

@@ -33,7 +33,8 @@
 .contactImg:hover {
     text-decoration: none;
     transition: 0.5s;
-    transform: translateY(-10px);
+    position: absolute;
+    transform: translateX(-10px) translateY(-10px);;
     width: 60px;
     height: 60px;
 }
@@ -48,7 +49,7 @@
 }
 .blockImage {
     display: block;
-    margin: 15px 15px 15px 0;
+    margin: 20px 15px 5px 0;
     height:200px;
     width: 160px;
     float: left;
@@ -58,6 +59,7 @@
     clear: both;
     content: "";
     margin: 0;
+    transform-style: preserve-3d;
 }
 .text-block {
     padding: 15px 0;
@@ -70,6 +72,7 @@
 .contactImg {
     width: 40px;
     height: 40px;
+    position: absolute;
 }
 @media screen and (max-width: 769px) {
     .contacts{

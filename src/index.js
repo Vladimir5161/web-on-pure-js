@@ -9,7 +9,6 @@ import { Settings } from './pages/settings/Settings'
 import { AboutMe } from './pages/aboutMe/AboutMe'
 
 
-
 let header = document.getElementById("header-nav")
 let main = document.getElementById("main")
 
@@ -69,10 +68,8 @@ const changePathname = async (currPage, html) => { // string value of last opene
 menuLink.forEach(element => {
     element.addEventListener('click', (event) => {
         event.preventDefault()
-        console.log(element)
         if (element.textContent === "About Me") {
             changePathname("/", htmlMain)
-            console.log(event)
         } else if (element.textContent === "My education") {
             changePathname("/myEducation", htmlEducation)
         } else if (element.textContent === "My experience") {
@@ -111,6 +108,10 @@ const setTheme = async (theme) => {
             item.style.color = "rgba(0,0,0, 0.9)"
         }
         for (let item of skillsContentBack) {
+            item.style.color = "rgba(0,0,0, 0.9)"
+        }
+        const images = main.querySelectorAll(".educationImg")
+        for (let item of images) {
             item.style.color = "rgba(0,0,0, 0.9)"
         }
     } else {
@@ -171,29 +172,6 @@ let htmlSkills = () => {
 
 
 
-class Animal {
-    constructor(options) {
-        this.name = options.name
-        this.color = options.color
-    }
-    voise() {
-        console.log(this.name + " says " + "bow")
-    }
-}
-
-const dog = new Animal({ name: "jack", color: "black" })
-console.log(dog.voise())
-
-class Cat extends Animal {
-    constructor(options) {
-        super(options)
-        this.hasTail = options.hasTail
 
 
-    }
-    voise() {
-        console.log(this.name + " says " + "mey")
-    }
-}
-const cat = new Cat({ name: "bonapart", color: "grey", hasTail: true })
-console.log(cat.voise())
+

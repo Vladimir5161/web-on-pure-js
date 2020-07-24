@@ -119,14 +119,14 @@
 @keyframes educationImgOpened {
     0% {
         opacity: 0;
-        position: absolute;
-        top: 0;
+        display: block;
+        position: fixed;
         left: 0;
         right: 0;
         margin: 0 auto;
         z-index: 10;
         transform: perspective(0) rotate3d(0, 0, 0, 0) ;
-        width: 300px;
+        width: 280px;
         max-height: 150px;
     }
     100% {
@@ -161,11 +161,7 @@
 @keyframes Ani {
     0% {
         position: relative;
-        right: -1500px;
-    }
-    50% {
-        position: relative;
-        right: -1450px;
+        right: -2500px;
     }
     100% {
         position: relative;
