@@ -14,7 +14,7 @@ export class AboutMe extends Basic {
         Object.assign(img, {
             className: 'blockImage',
             alt: '',
-            src: '/src//common/images/me.jpg'
+            src: '/public/common/images/me.jpg'
         })
         const textBlock = document.createElement('div')
         textBlock.className = "text-block"
@@ -61,7 +61,7 @@ export class AboutMe extends Basic {
             const contactImg = document.createElement('img')
             Object.assign(contactImg, {
                 className: 'contactImg',
-                src: `/src/common/images/${objKey}.png`
+                src: `/public/common/images/${objKey}.png`
             })
             contact.appendChild(contactImg)
             contacts.appendChild(contact)
@@ -92,7 +92,7 @@ let observer = new MutationObserver((mutationRecords) => {
         }
         const imageAnime = anime({
             targets: '.blockImage',
-            boxShadow: '0 0 10px 10px red',
+            boxShadow: '0 0 30px 5px red',
             autoplay: false,
             duration: 1000
         });

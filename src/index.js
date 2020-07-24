@@ -1,4 +1,4 @@
-import './common/reset.css'
+import '../public/common/reset.css'
 import "./header.css"
 import "./main.css"
 import "./app.css"

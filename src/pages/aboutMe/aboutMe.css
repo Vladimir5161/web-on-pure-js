@@ -53,6 +53,7 @@
     height:200px;
     width: 160px;
     float: left;
+    border-radius: 10px;
 }
 .row {
     display: block;

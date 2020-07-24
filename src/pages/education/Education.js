@@ -10,9 +10,9 @@ export class Education {
                                             <div class="educationText">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit maxime deserunt inventore incidunt voluptatum perferendis quia ut illo magnam animi debitis rem accusantium, voluptatibus at atque hic aliquid velit voluptates!</div>
                                             <div class="educationImageBlock" >
                                                 <div class="showInfoImageDiv" data-title="Crimean National University, Yalta city">
-                                                    <img src='/src/common/images/kgu.jpg'  class="educationImg"/>
+                                                    <img src='/public/common/images/kgu.jpg'  class="educationImg"/>
                                                 </div> 
-                                                <img src='/src/common/images/kgu.jpg'  class="educationImgClosed"/>
+                                                <img src='/public/common/images/kgu.jpg'  class="educationImgClosed"/>
                                             </div>
                                         </div>
                                         <div class="educationBlockStart">
@@ -20,9 +20,9 @@ export class Education {
                                             <div class="educationText">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugit maxime deserunt inventore incidunt voluptatum perferendis quia ut illo magnam animi debitis rem accusantium, voluptatibus at atque hic aliquid velit voluptates!</div>
                                             <div class="educationImageBlock" >
                                                 <div class="showInfoImageDiv" data-title="Lviv National University, Lviv city">    
-                                                    <img src='/src/common/images/lnu.jpg' class="educationImg" />
+                                                    <img src='/public/common/images/lnu.jpg' class="educationImg" />
                                                 </div> 
-                                                <img src='/src/common/images/lnu.jpg'  class="educationImgClosed"/>   
+                                                <img src='/public/common/images/lnu.jpg'  class="educationImgClosed"/>   
                                             </div>
                                         </div>
                                         <div class="educationBlockStart">
