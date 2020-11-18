@@ -1,5 +1,7 @@
-
-.app #header-nav, .app #header-nav-active, .app #header-nav-active-reverse, .app #header-nav-opened {
+.app #header-nav,
+.app #header-nav-active,
+.app #header-nav-active-reverse,
+.app #header-nav-opened {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -7,22 +9,23 @@
     border-top-right-radius: 30px;
     z-index: 45;
 }
-#header-nav, #header-nav-active, #header-nav-active-reverse {
+#header-nav,
+#header-nav-active,
+#header-nav-active-reverse {
     display: block;
     height: 70vh;
     width: 20vw;
-    background-color:#333333;
+    background-color: #333333;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     left: -19vw;
-    
 }
 #header-nav-opened {
     display: block;
     height: 70vh;
     width: 20vw;
-    background-color:#333333;
+    background-color: #333333;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -39,7 +42,6 @@
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        
     }
     100% {
         position: absolute;
@@ -68,22 +70,12 @@
     border-bottom: 2px solid black;
     position: relative;
 }
-.aboutMeImg {
-
-    position: absolute;
-    bottom: 0;
-    margin: 0 auto;
-    left: 0;
-    right: 0;
-    width: auto;
-    height: 30%;
-}
 .photo {
     margin: 20px;
-    height: 55%;
-    min-width: 100px;
+    height: 80%;
+    min-width: 150px;
     border-radius: 100%;
-    box-shadow:  0 0 40px 10px rgb(178,179,168);
+    box-shadow: 0 0 30px 10px rgb(178, 179, 168);
 }
 .navigation-block {
     padding-top: 20px;
@@ -100,7 +92,7 @@
     padding: 10px;
 }
 .navigation-point:hover {
-    background-color: rgb(129,136,140)
+    background-color: rgb(129, 136, 140);
 }
 .navigation-point a {
     color: white;
@@ -116,7 +108,7 @@
     bottom: 45%;
     height: 50px;
     width: 50px;
-    background-color: rgb(140,142,120);
+    background-color: rgb(140, 142, 120);
     display: grid;
     justify-content: center;
     border: none;
@@ -129,7 +121,7 @@
 }
 .menu-bottom {
     margin: 20px auto;
-    color: rgb(140,142,120);
+    color: rgb(140, 142, 120);
     height: 10%;
     font-size: 12px;
 }
@@ -139,22 +131,31 @@
     margin-left: 5px;
 }
 
-
 @media screen and (max-width: 768px) {
-    #header-nav, .app #header-nav-active, .app #header-nav-active-reverse, .app #header-nav-opened {
-        width: 30vw
+    #header-nav,
+    .app #header-nav-active,
+    .app #header-nav-active-reverse,
+    .app #header-nav-opened {
+        width: 30vw;
     }
-    #header-nav, #header-nav-active, #header-nav-active-reverse {
+    #header-nav,
+    #header-nav-active,
+    #header-nav-active-reverse {
         left: -29vw;
     }
 }
 @media screen and (max-width: 425px) {
-    #header-nav, .app #header-nav-active, .app #header-nav-active-reverse, .app #header-nav-opened {
-        height: 90vh;
-        width: 80vw
+    #header-nav,
+    .app #header-nav-active,
+    .app #header-nav-active-reverse,
+    .app #header-nav-opened {
+        height: 80vh;
+        width: 70vw;
     }
-    #header-nav, #header-nav-active, #header-nav-active-reverse {
-        left: -78vw;
+    #header-nav,
+    #header-nav-active,
+    #header-nav-active-reverse {
+        left: -65vw;
     }
     .navigation-block {
         height: 50%;
@@ -169,11 +170,16 @@
     }
 }
 @media screen and (max-width: 375px) {
-    #header-nav, .app #header-nav-active, .app #header-nav-active-reverse, .app #header-nav-opened {
-        height: 90vh;
-        width: 90vw
+    #header-nav,
+    .app #header-nav-active,
+    .app #header-nav-active-reverse,
+    .app #header-nav-opened {
+        height: 80vh;
+        width: 70vw;
     }
-    #header-nav, #header-nav-active, #header-nav-active-reverse {
-        left: -88vw;
+    #header-nav,
+    #header-nav-active,
+    #header-nav-active-reverse {
+        left: -65vw;
     }
 }

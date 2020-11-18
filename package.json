@@ -17,6 +17,7 @@
   "dependencies": {
     "animejs": "^3.2.0",
     "firebase": "^7.15.5",
+    "mongoose": "^5.10.14",
     "sass": "^1.26.9",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",

@@ -1,8 +1,7 @@
-
 .educationText {
     margin: 20px;
     font-size: 18px;
-    font-family: 'Dancing Script', cursive;
+    font-family: "Dancing Script", cursive;
     font-style: italic;
     font-weight: 50;
 }
@@ -10,7 +9,7 @@
     text-align: left;
     margin: 15px;
     font-size: 22px;
-    font-family: 'Dancing Script', cursive;
+    font-family: "Dancing Script", cursive;
     font-style: italic;
     font-weight: 50;
 }
@@ -18,31 +17,33 @@
     position: relative;
     z-index: 40;
 }
-.educationImg, .educationImgClosed {
+.educationImg,
+.educationImgClosed {
     width: 280px;
     max-height: 150px;
     border-radius: 15px;
 }
-.educationImg:hover{
+.educationImg:hover {
     cursor: pointer;
-    transform: perspective(400px) rotate3d(1, 0, 0.2, 30deg) ;
+    transform: perspective(400px) rotate3d(1, 0, 0.2, 30deg);
     transition: 1s;
 }
 .showInfoImageDiv:hover {
     cursor: pointer;
 }
- .showInfoImageDiv:hover::after {
+.showInfoImageDiv:hover::after {
     display: block;
     content: attr(data-title); /* Выводим текст */
     position: absolute; /* Абсолютное позиционирование */
-    left: 50%; top: 40%; /* Положение подсказки */
+    left: 50%;
+    top: 40%; /* Положение подсказки */
     z-index: 70; /* Отображаем подсказку поверх других элементов */
-    background: rgba(255,255,230,0.9); /* Полупрозрачный цвет фона */
+    background: rgba(255, 255, 230, 0.9); /* Полупрозрачный цвет фона */
     font-family: Arial, sans-serif; /* Гарнитура шрифта */
     font-size: 11px; /* Размер текста подсказки */
     padding: 5px 10px; /* Поля */
     border: 1px solid #333; /* Параметры рамки */
-   }
+}
 
 .educationImgOpened:hover {
     cursor: pointer;
@@ -50,10 +51,10 @@
 .showInfoImageDiv {
     display: block;
     width: 280px;
-        max-height: 150px;
-        margin: 0 auto;
-        position: relative;
-        z-index: 20;
+    max-height: 150px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 20;
 }
 .educationImgClosed {
     opacity: 0;
@@ -64,32 +65,39 @@
     right: 0;
     margin: 0 auto;
     z-index: 10;
-    transform: perspective(0) rotate3d(0, 0, 0, 0) ;
+    transform: perspective(0) rotate3d(0, 0, 0, 0);
     animation: educationImgClosed 1s;
-    
 }
 @keyframes educationImgClosed {
     0% {
+        display: block;
+        position: fixed;
+        z-index: 60;
+        top: 50%;
         opacity: 1;
-        position: absolute;
-        top: 0;
+        transform: translateY(-50%);
         left: 0;
         right: 0;
+        border-radius: 15px;
         margin: 0 auto;
+        max-height: 700px;
+        min-width: 80vw;
+        max-width: 100vw;
         height: auto;
-        width: 80vw;
-        max-width: 1170px;
+        width: auto;
+        padding: 5vh 5vw;
+        background-color: rgba(102, 102, 102, 0.95);
     }
     100% {
         opacity: 0;
         display: block;
         position: absolute;
-        top: 0;
+        top: -20px;
         left: 0;
         right: 0;
         margin: 0 auto;
         z-index: 10;
-        transform: perspective(0) rotate3d(0, 0, 0, 0) ;
+        transform: perspective(0) rotate3d(0, 0, 0, 0);
         width: 280px;
         max-height: 150px;
     }
@@ -109,11 +117,11 @@
     margin: 0 auto;
     max-height: 700px;
     min-width: 80vw;
-    max-width: 100vw;
+    max-width: 98vw;
     height: auto;
     width: auto;
     padding: 5vh 5vw;
-    background-color: rgba(102,102,102,0.95);
+    background-color: rgba(102, 102, 102, 0.95);
     animation: educationImgOpened 1s;
 }
 @keyframes educationImgOpened {
@@ -125,7 +133,7 @@
         right: 0;
         margin: 0 auto;
         z-index: 10;
-        transform: perspective(0) rotate3d(0, 0, 0, 0) ;
+        transform: perspective(0) rotate3d(0, 0, 0, 0);
         width: 280px;
         max-height: 150px;
     }
@@ -141,14 +149,13 @@
         margin: 0 auto;
         max-height: 700px;
         min-width: 80vw;
-        max-width: 100vw;
+        max-width: 98vw;
         height: auto;
         width: auto;
         padding: 5vh 5vw;
-        background-color: rgba(102,102,102,0.95);
+        background-color: rgba(102, 102, 102, 0.95);
     }
 }
-
 
 .educationBlockStart {
     position: relative;
@@ -168,7 +175,6 @@
         right: 0;
     }
 }
-
 
 @media screen and (max-width: 425px) {
     .educationImgOpened {

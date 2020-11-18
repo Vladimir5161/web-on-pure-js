@@ -1,5 +1,5 @@
 .workExpBlock {
-    margin:  0 auto;
+    margin: 0 auto;
     color: black;
     min-height: 50vh;
 }
@@ -8,7 +8,8 @@
     font-weight: 700;
     margin: 15px auto;
 }
-.workInfo, .projectInfoDiv {
+.workInfo,
+.projectInfoDiv {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(50%, 50%));
     margin: 10px auto 20px auto;
@@ -53,7 +54,8 @@
     margin: 15px auto;
     width: 90%;
 }
-.workImg, .projWindow {
+.workImg,
+.projWindow {
     height: auto;
     border-radius: 20px;
     display: flex;
@@ -64,20 +66,21 @@
     width: 100%;
 }
 .projImgLink:hover {
-    box-shadow:  0 0 20px 10px rgb(178,179,168);
+    box-shadow: 0 0 20px 10px rgb(178, 179, 168);
 }
 .projImgLink {
     display: flex;
     align-self: center;
     margin: 15px auto;
     width: 90%;
-    box-shadow:  0 0 20px 10px rgb(178,179,168);
+    box-shadow: 0 0 20px 10px rgb(178, 179, 168);
     border-radius: 20px;
 }
 .projImgLink:hover {
-    box-shadow:  0 0 50px 25px rgb(178,179,168);
+    box-shadow: 0 0 50px 25px rgb(178, 179, 168);
 }
-.company, .projName {
+.company,
+.projName {
     margin: 10px auto 10px 20px;
     font-size: 24px;
 }
@@ -92,11 +95,15 @@
     font-size: 24px;
     margin: 0 auto 10px 20px;
 }
-.achievments, .responsibilities, .projDescr, .techStack {
+.achievments,
+.responsibilities,
+.projDescr,
+.techStack {
     font-size: 18px;
     line-height: 22px;
 }
-.spanResp, .spanAchi {
+.spanResp,
+.spanAchi {
     display: block;
     font-size: 27px;
     text-align: left;
@@ -108,20 +115,24 @@
     margin-left: 20px;
 }
 
-@media screen and (max-width: 425px) {
-    .workInfo, .projectInfoDiv {
+@media screen and (max-width: 768px) {
+    .workInfo,
+    .projectInfoDiv {
         width: 80vw;
         margin: 0 auto;
         display: block;
         grid-template-columns: none;
         margin: 10px auto 20px auto;
     }
-    .projName, .company, .position {
+    .projName,
+    .company,
+    .position {
         margin: 10px auto 10px auto;
         font-size: 24px;
         text-align: center;
     }
-    .projImgLink, .workImg {
+    .projImgLink,
+    .workImg {
         width: 100%;
     }
 }
