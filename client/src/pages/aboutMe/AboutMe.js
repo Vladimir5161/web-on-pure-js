@@ -72,7 +72,7 @@ export class AboutMe extends Basic {
             const contactImg = document.createElement("img");
             Object.assign(contactImg, {
                 className: "contactImg",
-                src: `/public/common/images/${objKey}.png`,
+                src: `../public/common/images/${objKey}.png`,
             });
             contact.appendChild(contactImg);
             contacts.appendChild(contact);
