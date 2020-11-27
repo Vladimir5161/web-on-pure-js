@@ -30,13 +30,13 @@ export class AboutMe extends Basic {
         Object.assign(img, {
             className: "blockImage",
             alt: "",
-            src: "/web-on-js-native/client/public/common/images/me.jpg",
+            src: "/images/me.jpg",
         });
         const img2 = document.createElement("img");
         Object.assign(img2, {
             className: "blockImageSmall",
             alt: "",
-            src: "/web-on-js-native/client/public/common/images/me.jpg",
+            src: "/images/me.jpg",
         });
         const textBlock = document.createElement("div");
         textBlock.className = "text-block";
@@ -72,7 +72,7 @@ export class AboutMe extends Basic {
             const contactImg = document.createElement("img");
             Object.assign(contactImg, {
                 className: "contactImg",
-                src: `/web-on-js-native/client/public/common/images/${objKey}.png`,
+                src: `/images/${objKey}.png`,
             });
             contact.appendChild(contactImg);
             contacts.appendChild(contact);
