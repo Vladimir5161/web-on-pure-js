@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const router = Router();
-const admin = require("firebase-admin");
+const fs = require("fs");
 
 const getData = (url) => {
     const ob = url.split("images/");
@@ -12,8 +12,8 @@ router.get("/", async (req, res) => {
     let name = getData(req.url);
     const image = path.join(__dirname, "client", "public", `${name}`);
     try {
-        res.status(200);
-        res.sendFile(image);
+        res.writeHead(200, { "content-type": "image/png" });
+        fs.createReadStream(image, "utf-8").pipe(res);
     } catch (e) {
         res.status(500).json("unable to get data");
     }
