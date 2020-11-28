@@ -12,7 +12,8 @@ router.get("/", async (req, res) => {
     let name = getData(req.url);
     const image = path.join(__dirname, "client", "public", `${name}`);
     try {
-        res.status(200).json(image);
+        res.status(200);
+        res.sendFile(image);
     } catch (e) {
         res.status(500).json("unable to get data");
     }
