@@ -7,7 +7,7 @@ export class Menu {
         const photo = document.createElement("img");
         photo.className = "photo";
         Object.assign(photo, {
-            src: "/public/common/images/me.jpg",
+            src: "/images/me.jpg",
             alt: "",
         });
         const menuButton = document.createElement("button");
