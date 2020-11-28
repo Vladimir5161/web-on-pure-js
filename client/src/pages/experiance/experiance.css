@@ -71,7 +71,7 @@
 .projImgLink {
     display: flex;
     align-self: center;
-    margin: 15px auto;
+    margin: 20px auto;
     width: 90%;
     box-shadow: 0 0 20px 10px rgb(178, 179, 168);
     border-radius: 20px;
@@ -134,5 +134,10 @@
     .projImgLink,
     .workImg {
         width: 100%;
+    }
+    .responsibilities,
+    .achievments {
+        font-size: 17px;
+        line-height: 20px;
     }
 }

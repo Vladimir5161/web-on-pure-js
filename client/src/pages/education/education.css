@@ -120,10 +120,8 @@
     border-radius: 15px;
     margin: 0 auto;
     max-height: 700px;
-    min-width: 80vw;
-    max-width: 98vw;
+    width: 100vw;
     height: auto;
-    width: auto;
     padding: 5vh 5vw;
     background-color: rgba(102, 102, 102, 0.95);
     animation: educationImgOpened 1s;
@@ -152,10 +150,8 @@
         border-radius: 15px;
         margin: 0 auto;
         max-height: 700px;
-        min-width: 80vw;
-        max-width: 98vw;
+        min-width: 100vw;
         height: auto;
-        width: auto;
         padding: 5vh 5vw;
         background-color: rgba(102, 102, 102, 0.95);
     }

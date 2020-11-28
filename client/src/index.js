@@ -178,8 +178,8 @@ let observer = new MutationObserver((mutationRecords) => {
             wrappedMain.innerHTML = result;
         };
 
-        let htmlSkills = () => {
-            const result = Skill.render();
+        let htmlSkills = async () => {
+            const result = await Skill.render();
             wrappedMain.innerHTML = result;
         };
     }

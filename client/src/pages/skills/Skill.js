@@ -1,129 +1,8 @@
+import Basic from "../Basic";
 import "./skills.css";
 
-let skillsarr = [
-    {
-        id: 1,
-        stars: 4,
-        icon:
-            "https://upload.wikimedia.org/wikipedia/commons/1/1f/Star_Icon.png",
-        name: "JS",
-    },
-    {
-        id: 2,
-        stars: 5,
-        icon:
-            "https://freeiconshop.com/wp-content/uploads/edd/html-outline.png",
-        name: "CSS",
-    },
-    {
-        id: 3,
-        stars: 5,
-        icon:
-            "https://freeiconshop.com/wp-content/uploads/edd/html-outline.png",
-        name: "HTML",
-    },
-    {
-        is: 4,
-        stars: 4,
-        icon:
-            "https://freeiconshop.com/wp-content/uploads/edd/html-outline.png",
-        name: "React",
-    },
-    {
-        id: 5,
-        stars: 4,
-        icon:
-            "https://freeiconshop.com/wp-content/uploads/edd/html-outline.png",
-        name: "Redux",
-    },
-    {
-        is: 6,
-        stars: 4,
-        icon:
-            "https://freeiconshop.com/wp-content/uploads/edd/html-outline.png",
-        name: "React Hooks",
-    },
-    {
-        id: 7,
-        stars: 3,
-        icon:
-            "https://freeiconshop.com/wp-content/uploads/edd/html-outline.png",
-        name: "Redux Thunk",
-    },
-    {
-        id: 8,
-        stars: 4,
-        icon:
-            "https://upload.wikimedia.org/wikipedia/commons/1/1f/Star_Icon.png",
-        name: "Redux Form",
-    },
-    {
-        id: 9,
-        stars: 3,
-        icon:
-            "https://freeiconshop.com/wp-content/uploads/edd/html-outline.png",
-        name: "axios",
-    },
-    {
-        id: 10,
-        stars: 2,
-        icon:
-            "https://freeiconshop.com/wp-content/uploads/edd/html-outline.png",
-        name: "lodash",
-    },
-    {
-        is: 11,
-        stars: 4,
-        icon:
-            "https://freeiconshop.com/wp-content/uploads/edd/html-outline.png",
-        name: "Git",
-    },
-    {
-        id: 12,
-        stars: 3,
-        icon:
-            "https://freeiconshop.com/wp-content/uploads/edd/html-outline.png",
-        name: "firebase",
-    },
-    {
-        is: 13,
-        stars: 3,
-        icon:
-            "https://freeiconshop.com/wp-content/uploads/edd/html-outline.png",
-        name: "OOP",
-    },
-    {
-        is: 14,
-        stars: 2,
-        icon:
-            "https://freeiconshop.com/wp-content/uploads/edd/html-outline.png",
-        name: "Next JS",
-    },
-    {
-        is: 15,
-        stars: 4,
-        icon:
-            "https://freeiconshop.com/wp-content/uploads/edd/html-outline.png",
-        name: "ES",
-    },
-    {
-        is: 16,
-        stars: 3,
-        icon:
-            "https://freeiconshop.com/wp-content/uploads/edd/html-outline.png",
-        name: "selectors",
-    },
-    {
-        id: 17,
-        stars: 4,
-        icon:
-            "https://upload.wikimedia.org/wikipedia/commons/1/1f/Star_Icon.png",
-        name: "Rest Api",
-    },
-];
-
-export class Skill {
-    static render() {
+export class Skill extends Basic {
+    static renderSkills(skillsArr) {
         const skills = document.createElement("div");
         skills.className = "skills";
         const currentH1 = document.createElement("div");
@@ -131,7 +10,7 @@ export class Skill {
         currentH1.innerText = "My current Skills";
         const skillBlock = document.createElement("div");
         skillBlock.id = "skillBlock";
-        skillsarr.map((item) => {
+        skillsArr.reverse().map((item) => {
             const stars = document.createElement("div");
             const starsBack = document.createElement("div");
             for (let i = 0; i < item.stars; i++) {
@@ -185,7 +64,12 @@ export class Skill {
         });
         skills.appendChild(currentH1);
         skills.appendChild(skillBlock);
-        return skills.outerHTML;
+        return skills;
+    }
+    static async render() {
+        const skillsArr = await this.getContentApi("skills");
+        const result = this.renderSkills(skillsArr);
+        return result.outerHTML;
     }
 }
 

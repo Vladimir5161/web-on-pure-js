@@ -58,10 +58,6 @@ export class AboutMe extends Basic {
         // here we will create my contact icons
         const contacts = document.createElement("div");
         contacts.className = "contacts";
-        const contactsTitle = document.createElement("h1");
-        contacts.appendChild(contactsTitle);
-        contactsTitle.className = "title";
-        contactsTitle.textContent = "Contacts: ";
         for (let item in contactsArr) {
             const objKey = item;
             const objVal = contactsArr[item];

@@ -139,7 +139,6 @@
     content: "";
     margin: 0;
     transform-style: preserve-3d;
-    height: 100%;
     position: relative;
     z-index: 500;
 }
@@ -172,6 +171,21 @@
         justify-content: center;
         position: relative;
         left: -20px;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 80px));
+    }
+    .h1Row {
+        grid-template-columns: none;
+        grid-template-rows: 0.5fr 0.5fr;
+        justify-content: left;
+    }
+}
+@media screen and (max-width: 425px) {
+    .contacts {
+        justify-content: center;
+        position: relative;
+        left: -20px;
+        height: 135px;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 120px));
     }
     .h1Row {
         grid-template-columns: none;
