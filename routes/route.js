@@ -37,7 +37,6 @@ router.get("/col/*", async (req, res) => {
 
 router.get("/doc/*", async (req, res) => {
     let { col, doc } = getData(req.url);
-    console.log(col, doc);
     try {
         const data = await admin
             .firestore()

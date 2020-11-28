@@ -2,7 +2,7 @@ import "./aboutMe.css";
 import Basic from "../Basic";
 
 export class AboutMe extends Basic {
-    static renderAboutPage(contactsArr) {
+    static async renderAboutPage(contactsArr) {
         const H1 = document.createElement("h1");
         H1.className = "title";
         H1.textContent = "Vladimir Vagaev";
@@ -27,16 +27,18 @@ export class AboutMe extends Basic {
         const row = document.createElement("div");
         row.className = "row";
         const img = document.createElement("img");
+        const is = "/images/me.jpg";
         Object.assign(img, {
             className: "blockImage",
             alt: "",
-            src: "http://213.139.209.48/images/me.jpg",
+            src: is,
         });
         const img2 = document.createElement("img");
+        const im = "/images/me.jpg";
         Object.assign(img2, {
             className: "blockImageSmall",
             alt: "",
-            src: "http://213.139.209.48/images/me.jpg",
+            src: im,
         });
         const textBlock = document.createElement("div");
         textBlock.className = "text-block";
@@ -70,9 +72,10 @@ export class AboutMe extends Basic {
                 target: "_blank",
             });
             const contactImg = document.createElement("img");
+            const ib = `/images/${objKey}.png`;
             Object.assign(contactImg, {
                 className: "contactImg",
-                src: `http://213.139.209.48/images/${objKey}.png`,
+                src: ib,
             });
             contact.appendChild(contactImg);
             contacts.appendChild(contact);
@@ -89,7 +92,7 @@ export class AboutMe extends Basic {
             "contacts",
             "UwhT3lZgl8ZqcrISmc5r"
         );
-        const result = this.renderAboutPage(contactsArr);
+        const result = await this.renderAboutPage(contactsArr);
         return result.outerHTML;
     }
 }
