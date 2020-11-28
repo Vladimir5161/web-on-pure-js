@@ -1,16 +1,12 @@
 .educationText {
     margin: 20px;
     font-size: 18px;
-    font-family: "Dancing Script", cursive;
-    font-style: italic;
     font-weight: 50;
 }
 .educationName {
     text-align: left;
     margin: 15px;
     font-size: 22px;
-    font-family: "Dancing Script", cursive;
-    font-style: italic;
     font-weight: 50;
 }
 .educationImg {

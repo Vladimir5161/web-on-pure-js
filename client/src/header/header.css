@@ -141,7 +141,7 @@
     #header-nav .headerDiv,
     #header-nav-active .headerDiv,
     #header-nav-active-reverse .headerDiv {
-        left: -225px;
+        left: -220px;
     }
 }
 @media screen and (max-width: 425px) {
@@ -164,9 +164,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-    }
-    .photo {
-        min-width: 115px;
     }
 }
 @media screen and (max-width: 375px) {

@@ -115,6 +115,8 @@
 .skillNameDiv {
     font-size: 20px;
     font-weight: bold;
+    position: relative;
+    top: -5px;
 }
 .currentSkills {
     font-size: 35px;
