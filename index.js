@@ -9,6 +9,7 @@ const serviceAccount = require("./cert.json");
 const app = express();
 app.use(cors());
 app.use("/api", require("./routes/route"));
+app.use("/api", require("./routes/route_images"));
 
 if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, "client", "build")));

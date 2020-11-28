@@ -30,13 +30,13 @@ export class AboutMe extends Basic {
         Object.assign(img, {
             className: "blockImage",
             alt: "",
-            src: "/images/me.jpg",
+            src: "http://213.139.209.48/images/me.jpg",
         });
         const img2 = document.createElement("img");
         Object.assign(img2, {
             className: "blockImageSmall",
             alt: "",
-            src: "/images/me.jpg",
+            src: "http://213.139.209.48/images/me.jpg",
         });
         const textBlock = document.createElement("div");
         textBlock.className = "text-block";
@@ -72,7 +72,7 @@ export class AboutMe extends Basic {
             const contactImg = document.createElement("img");
             Object.assign(contactImg, {
                 className: "contactImg",
-                src: `/images/${objKey}.png`,
+                src: `http://213.139.209.48/images/${objKey}.png`,
             });
             contact.appendChild(contactImg);
             contacts.appendChild(contact);

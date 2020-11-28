@@ -36,7 +36,7 @@
 .skillDivContent,
 .skillDivContentBack {
     border-radius: 100%;
-    background-image: url("/images/star.png");
+    background-image: url("http://213.139.209.48/images/star.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -80,7 +80,7 @@
     align-content: center;
     padding: 15px;
     border-radius: 100%;
-    background-image: url("/images/star.png");
+    background-image: url("http://213.139.209.48/images/star.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
