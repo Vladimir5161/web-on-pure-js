@@ -153,22 +153,59 @@
     }
 }
 @media screen and (max-width: 425px) {
-    #header-nav .headerDiv,
+    .app #header-nav .headerDiv,
     .app #header-nav-active .headerDiv,
     .app #header-nav-active-reverse .headerDiv,
     .app #header-nav-opened .headerDiv {
         height: 80vh;
         width: 70vw;
+        top: auto;
+        transform: none;
+        bottom: 0;
     }
     #header-nav .headerDiv,
     #header-nav-active .headerDiv,
-    #header-nav-active-reverse .headerDiv {
+    #header-nav-active-reverse .headerDiv,
+    #header-nav-opened .headerDiv {
         left: -67vw;
+        top: auto;
+        transform: none;
+        bottom: 0;
     }
     .menu-bottom {
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+    @keyframes navAnimation {
+        0% {
+            position: fixed;
+            top: auto;
+            transform: none;
+            bottom: 0;
+        }
+        100% {
+            position: fixed;
+            top: auto;
+            transform: none;
+            bottom: 0;
+            left: 0;
+        }
+    }
+    @keyframes navAnimationReverse {
+        0% {
+            position: fixed;
+            top: auto;
+            transform: none;
+            bottom: 0;
+            left: 0;
+        }
+        100% {
+            position: fixed;
+            top: auto;
+            transform: none;
+            bottom: 0;
+        }
     }
 }
 @media screen and (max-width: 375px) {

@@ -194,6 +194,9 @@
         grid-template-rows: 0.5fr 0.5fr;
         justify-content: left;
     }
+    .row {
+        height: auto;
+    }
 }
 @media screen and (max-width: 325px) {
     .contacts {
