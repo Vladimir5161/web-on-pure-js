@@ -7,6 +7,7 @@
     transform: translateY(-50%);
     border-bottom-right-radius: 30px;
     border-top-right-radius: 30px;
+    min-height: 530px;
     z-index: 45;
 }
 #header-nav .headerDiv,
@@ -131,9 +132,11 @@
     width: 1.5rem;
 }
 .menu-bottom {
-    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: rgb(140, 142, 120);
-    height: 10%;
+    min-height: 10%;
     font-size: 12px;
 }
 .authorName {
@@ -161,9 +164,6 @@
     #header-nav-active .headerDiv,
     #header-nav-active-reverse .headerDiv {
         left: -67vw;
-    }
-    .navigation-block {
-        height: 50%;
     }
     .menu-bottom {
         display: flex;
