@@ -1,5 +1,5 @@
 #main {
-    height: 100vh;
+    height: 100%;
     width: 100%;
     display: block;
     position: fixed;
@@ -12,7 +12,7 @@
     z-index: 30;
     width: 90%;
     height: 90%;
-    margin: 5vh auto;
+    margin: 0 auto 5vh auto;
     animation: main 2s;
 }
 @keyframes main {
