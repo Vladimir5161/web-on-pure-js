@@ -234,3 +234,9 @@
         }
     }
 }
+@media screen and (max-height: 625px) {
+    .educationImgOpened {
+        height: 100vh !important;
+        width: auto !important;
+    }
+}

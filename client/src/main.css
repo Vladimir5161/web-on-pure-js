@@ -1,9 +1,9 @@
 #main {
-
     height: 100vh;
     width: 100%;
     display: block;
-    box-shadow: inset 0 0 20px 10px rgb(178,179,168);
+    position: fixed;
+    box-shadow: inset 0 0 20px 10px rgb(178, 179, 168);
     overflow: auto;
 }
 .main-div {
@@ -27,21 +27,20 @@
     left: 0;
     position: fixed;
     z-index: 60;
-    font-family: 'Muli', sans-serif !important;
+    font-family: "Muli", sans-serif !important;
     font-style: italic;
     font-size: 30px;
     right: 0;
     margin: 0 auto;
-    background-color: rgba(102,102,102,0.95);
+    background-color: rgba(102, 102, 102, 0.95);
     padding: 15px 0;
     top: 0;
     color: wheat;
-    box-shadow: 0 0 20px 10px rgb(178,179,168);
+    box-shadow: 0 0 20px 10px rgb(178, 179, 168);
 }
 @media screen and (max-width: 425px) {
     .text-block {
         padding: 7px 0;
-    font-size: 14px;
+        font-size: 14px;
     }
 }
-

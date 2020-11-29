@@ -78,3 +78,18 @@ export class Menu {
         return header.outerHTML;
     }
 }
+
+const observeItem = document.querySelector(".app");
+let observer = new MutationObserver((mutationRecords) => {
+    mutationRecords[0].addedNodes[0].className === "main-div";
+    const device = window.innerHeight > window.innerWidth;
+    device
+        ? (observeItem.querySelectorAll(".header-top").className = "header-top")
+        : (observeItem.querySelectorAll(".header-top").className =
+              "header-top-horizontal");
+});
+
+observer.observe(observeItem, {
+    childList: true, // наблюдать за непосредственными детьми
+    characterDataOldValue: false,
+});
