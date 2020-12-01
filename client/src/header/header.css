@@ -165,9 +165,13 @@
     }
     #header-nav .headerDiv,
     #header-nav-active .headerDiv,
-    #header-nav-active-reverse .headerDiv,
-    #header-nav-opened .headerDiv {
+    #header-nav-active-reverse .headerDiv {
         left: -67vw;
+        top: auto;
+        transform: none;
+        bottom: 0;
+    }
+    #header-nav-opened .headerDiv {
         top: auto;
         transform: none;
         bottom: 0;

@@ -84,7 +84,8 @@ let observer = new MutationObserver((mutationRecords) => {
             setCurrentPage(currPage);
             CloseMenuFunc();
             const theme = await getCurrentTheme();
-            setTheme(theme);
+            await setTheme(theme);
+            window.scrollTo({ top: -100, left: 100, behavior: "smooth" });
         }; // function to change local address and to set html that needed on page
 
         menuLink.forEach((element) => {
