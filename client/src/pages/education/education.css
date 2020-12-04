@@ -82,7 +82,7 @@
         margin: 0 auto;
         max-height: 700px;
         min-width: 80vw;
-        max-width: 98vw;
+        max-width: 1170px;
         height: auto;
         width: auto;
         background-color: rgba(102, 102, 102, 0.95);
@@ -116,6 +116,7 @@
     margin: 0 auto;
     max-height: 700px;
     width: 98vw;
+    max-width: 1170px;
     height: auto;
     background-color: rgba(102, 102, 102, 0.95);
     animation: educationImgOpened 1s;
@@ -144,7 +145,7 @@
         border-radius: 15px;
         margin: 0 auto;
         max-height: 700px;
-        min-width: 98vw;
+        max-width: 1170px;
         height: auto;
         background-color: rgba(102, 102, 102, 0.95);
     }
