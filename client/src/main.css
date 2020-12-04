@@ -1,5 +1,6 @@
 #main {
     width: 100%;
+    min-height: 100vh !important;
     display: block;
     min-height: 650px;
     box-shadow: inset 0 0 20px 10px rgb(178, 179, 168);
@@ -41,5 +42,10 @@
     .text-block {
         padding: 7px 0;
         font-size: 14px;
+    }
+}
+@media screen and (max-height: 675px) {
+    #main {
+        min-height: 650px !important;
     }
 }

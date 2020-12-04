@@ -82,10 +82,9 @@
         margin: 0 auto;
         max-height: 700px;
         min-width: 80vw;
-        max-width: 100vw;
+        max-width: 98vw;
         height: auto;
         width: auto;
-        padding: 5vh 5vw;
         background-color: rgba(102, 102, 102, 0.95);
     }
     100% {
@@ -116,9 +115,8 @@
     border-radius: 15px;
     margin: 0 auto;
     max-height: 700px;
-    width: 100vw;
+    width: 98vw;
     height: auto;
-    padding: 5vh 5vw;
     background-color: rgba(102, 102, 102, 0.95);
     animation: educationImgOpened 1s;
 }
@@ -146,9 +144,8 @@
         border-radius: 15px;
         margin: 0 auto;
         max-height: 700px;
-        min-width: 100vw;
+        min-width: 98vw;
         height: auto;
-        padding: 5vh 5vw;
         background-color: rgba(102, 102, 102, 0.95);
     }
 }
