@@ -197,14 +197,11 @@
     .app #header-nav-active .headerDiv,
     .app #header-nav-active-reverse .headerDiv,
     .app #header-nav-opened .headerDiv {
-        height: 80vh;
-        width: 70vw;
         position: absolute !important;
     }
     #header-nav .headerDiv,
     #header-nav-active .headerDiv,
     #header-nav-active-reverse .headerDiv {
-        left: -67vw;
         position: absolute !important;
     }
     @keyframes navAnimation {
