@@ -2,7 +2,7 @@
 .app #header-nav-active .headerDiv,
 .app #header-nav-active-reverse .headerDiv,
 .app #header-nav-opened .headerDiv {
-    position: absolute;
+    position: fixed;
     top: 50%;
     transform: translateY(-50%);
     border-bottom-right-radius: 30px;
@@ -17,7 +17,7 @@
     display: block;
     height: 70vh;
     background-color: #333333;
-    position: absolute;
+    position: fixed;
     top: 50%;
     transform: translateY(-50%);
     left: -215px;
@@ -28,7 +28,7 @@
     display: block;
     height: 70vh;
     background-color: #333333;
-    position: absolute;
+    position: fixed;
     top: 50%;
     transform: translateY(-50%);
     max-height: 780px;
@@ -45,12 +45,12 @@
 }
 @keyframes navAnimation {
     0% {
-        position: absolute;
+        position: fixed;
         top: 50%;
         transform: translateY(-50%);
     }
     100% {
-        position: absolute;
+        position: fixed;
         top: 50%;
         transform: translateY(-50%);
         left: 0;
@@ -58,13 +58,13 @@
 }
 @keyframes navAnimationReverse {
     0% {
-        position: absolute;
+        position: fixed;
         top: 50%;
         transform: translateY(-50%);
         left: 0;
     }
     100% {
-        position: absolute;
+        position: fixed;
         top: 50%;
         transform: translateY(-50%);
     }
@@ -190,5 +190,47 @@
     #header-nav-active .headerDiv,
     #header-nav-active-reverse .headerDiv {
         left: -67vw;
+    }
+}
+@media screen and (max-height: 650px) {
+    #header-nav .headerDiv,
+    .app #header-nav-active .headerDiv,
+    .app #header-nav-active-reverse .headerDiv,
+    .app #header-nav-opened .headerDiv {
+        height: 80vh;
+        width: 70vw;
+        position: absolute !important;
+    }
+    #header-nav .headerDiv,
+    #header-nav-active .headerDiv,
+    #header-nav-active-reverse .headerDiv {
+        left: -67vw;
+        position: absolute !important;
+    }
+    @keyframes navAnimation {
+        0% {
+            position: absolute !important;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        100% {
+            position: absolute !important;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+        }
+    }
+    @keyframes navAnimationReverse {
+        0% {
+            position: absolute !important;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+        }
+        100% {
+            position: absolute !important;
+            top: 50%;
+            transform: translateY(-50%);
+        }
     }
 }
