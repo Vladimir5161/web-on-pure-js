@@ -1,0 +1,143 @@
+.workExpBlock {
+    margin: 0 auto;
+    color: black;
+    min-height: 50vh;
+}
+.H1 {
+    font-size: 30px;
+    font-weight: 700;
+    margin: 15px auto;
+}
+.workInfo,
+.projectInfoDiv {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50%, 50%));
+    margin: 10px auto 20px auto;
+}
+.workInfo {
+    animation: workAni 0.5s;
+}
+.projectInfoDiv {
+    animation: projAni 0.5s;
+}
+@keyframes workAni {
+    0% {
+        position: relative;
+        left: -1500px;
+    }
+    80% {
+        position: relative;
+        left: 300px;
+    }
+    100% {
+        position: relative;
+        left: 0;
+        right: 0;
+    }
+}
+@keyframes projAni {
+    0% {
+        position: relative;
+        right: -1500px;
+    }
+    80% {
+        position: relative;
+        right: 300px;
+    }
+    100% {
+        position: relative;
+        left: 0;
+        right: 0;
+    }
+}
+.workImg {
+    margin: 15px auto;
+    width: 90%;
+}
+.workImg,
+.projWindow {
+    height: auto;
+    border-radius: 20px;
+    display: flex;
+    align-self: center;
+    height: auto;
+}
+.projWindow {
+    width: 100%;
+}
+.projImgLink:hover {
+    box-shadow: 0 0 20px 10px rgb(178, 179, 168);
+}
+.projImgLink {
+    display: flex;
+    align-self: center;
+    margin: 20px auto;
+    width: 90%;
+    box-shadow: 0 0 20px 10px rgb(178, 179, 168);
+    border-radius: 20px;
+}
+.projImgLink:hover {
+    box-shadow: 0 0 50px 25px rgb(178, 179, 168);
+}
+.company,
+.projName {
+    margin: 10px auto 10px 20px;
+    font-size: 24px;
+}
+.company {
+    text-align: left;
+}
+.projName {
+    text-align: right;
+}
+.position {
+    text-align: left;
+    font-size: 24px;
+    margin: 0 auto 10px 20px;
+}
+.achievments,
+.responsibilities,
+.projDescr,
+.techStack {
+    font-size: 18px;
+    line-height: 22px;
+}
+.spanResp,
+.spanAchi {
+    display: block;
+    font-size: 27px;
+    text-align: left;
+    margin: 5px auto 15px 5px;
+}
+.textDiv {
+    display: block;
+    text-align: left;
+    margin-left: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .workInfo,
+    .projectInfoDiv {
+        width: 80vw;
+        margin: 0 auto;
+        display: block;
+        grid-template-columns: none;
+        margin: 10px auto 20px auto;
+    }
+    .projName,
+    .company,
+    .position {
+        margin: 10px auto 10px auto;
+        font-size: 24px;
+        text-align: center;
+    }
+    .projImgLink,
+    .workImg {
+        width: 100%;
+    }
+    .responsibilities,
+    .achievments {
+        font-size: 17px;
+        line-height: 20px;
+    }
+}

@@ -1,0 +1,81 @@
+.modalWindowDiv {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    z-index: 20;
+    background-color: rgba(102,102,102,0.95);
+    animation: settings 1s;
+}
+.modalWindowDivRemove {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    z-index: 20;
+    background-color: rgba(102,102,102,0.95);
+    animation: settingsRemove 1s;
+}
+@keyframes settings {
+    0%{
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes settingsRemove {
+    0%{
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+.modalWindow {
+    width: 60vw;
+    height: 30vh;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 0;
+    transform: translateY(50%);
+    background-color: white;
+    border-radius: 20px;
+}
+.modalText {
+    font-size: 27px;
+    color: black !important;
+    margin: 15px auto;
+}
+.buttonsBlock {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 180px));
+    width: 80%;
+    margin:  25px auto;
+    justify-content: center;
+}
+.buttonYes, .buttonNo {
+    background-color: rgba(102,102,102,0.95);
+    border: 1px  solid black;
+    height: 50px;
+    width: 110px;
+    display: block;
+    margin: 10px auto;
+    border-radius: 10px;
+    box-shadow:  0 0 20px 10px rgb(178,179,168);
+    font-size: 16px;
+    font-weight: bold;
+}
+.buttonYes:hover, .buttonNo:hover {
+    cursor: pointer;
+    height: 60px;
+    width: 130px;
+    transition: 0.7s;
+    transform: translateY(-5px);
+    font-size: 18px;
+}
+.buttonNo {
+    background-color: white;
+}
