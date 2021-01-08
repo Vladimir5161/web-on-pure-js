@@ -39,6 +39,15 @@ export class Skill extends Basic {
             let skillDivContent = document.createElement("div");
             skillDivContent.className = "skillDivContent";
             skillDivContentBack.className = "skillDivContentBack";
+            const img = document.createElement('img')
+            img.src = "/images/star.png";
+            img.className = 'skillDivContent'
+            const img2 = document.createElement('img')
+            img2.src = "/images/star.png";
+            img2.className = 'skillDivContentBack'
+
+            img.onload = skillDivContent.appendChild(img);
+            img.onload = skillDivContentBack.appendChild(img2);
             skillDivContent.appendChild(skillName);
             skillDivContentBack.appendChild(starsBack);
             skillDiv.addEventListener("click", () => {
