@@ -257,7 +257,7 @@
         position: fixed !important;
         height: 98vh;
         max-height: 98vh !important;
-        min-height: 320px !important;
+        min-height: 300px !important;
     }
     #header-nav .headerDiv,
     #header-nav-active .headerDiv,

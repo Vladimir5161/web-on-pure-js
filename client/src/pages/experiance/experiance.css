@@ -130,7 +130,9 @@
     position: absolute;
     width: 100%;
     animation: techDivAni 1s;
+    font-size: 15px;
 }
+
 .techDiv {
     margin: 0 auto;
     width: 70%;
