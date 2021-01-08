@@ -50,7 +50,7 @@ let observer = new MutationObserver((mutationRecords) => {
             localStorage.setItem("theme", JSON.stringify(currTheme)); //saving a string ref to a  last opened page without changing page's hash to a local storage
         };
         buttonYes.addEventListener("mousedown", () => {
-            main.style.backgroundImage = 'url("/public/common/images/starfall.gif")';
+            main.style.backgroundImage = 'url("/images/starfall.gif")';
             main.style.color = "white";
             const WorkExpBlock = main.querySelectorAll(".workExpBlock");
             for (let item of WorkExpBlock) {
@@ -61,7 +61,7 @@ let observer = new MutationObserver((mutationRecords) => {
         });
         const buttonNo = observeItem.querySelector(".buttonNo");
         buttonNo.addEventListener("mousedown", () => {
-            main.style.backgroundImage = 'url("/public/common/images/nebo2.gif")';
+            main.style.backgroundImage = 'url("/images/nebo2.gif")';
             main.style.color = "black";
             const WorkExpBlock = main.querySelectorAll(".workExpBlock");
             for (let item of WorkExpBlock) {

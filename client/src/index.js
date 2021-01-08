@@ -139,7 +139,7 @@ let observer = new MutationObserver((mutationRecords) => {
 
         const setTheme = async (theme) => {
             if (theme === "black") {
-                main.style.backgroundImage = 'url("/public/common/images/starfall.gif")';
+                main.style.backgroundImage = 'url("/images/starfall.gif")';
                 main.style.color = "white";
                 const WorkExpBlock = main.querySelectorAll(".workExpBlock");
                 for (let item of WorkExpBlock) {
@@ -164,7 +164,7 @@ let observer = new MutationObserver((mutationRecords) => {
                     item.style.color = "rgba(0,0,0, 0.9)";
                 }
             } else {
-                main.style.backgroundImage = 'url("/public/common/images/nebo2.gif")';
+                main.style.backgroundImage = 'url("/images/nebo2.gif")';
                 main.style.color = "black";
                 const WorkExpBlock = main.querySelectorAll(".workExpBlock");
                 for (let item of WorkExpBlock) {
