@@ -1,0 +1,252 @@
+.workExpBlock {
+    margin: 0 auto;
+    color: black;
+    min-height: 50vh;
+}
+.H1 {
+    font-size: 26px;
+    font-weight: 700;
+    margin: 15px auto;
+}
+.ImageDiv {
+    position: relative;
+    margin: 20px auto;
+}
+.workInfoWrapper,
+.projectInfoDivWrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50%, 50%));
+    margin: 10px auto 20px auto;
+    justify-content: center;
+}
+.workInfo {
+    position: relative;
+}
+.projectInfoDiv,
+.workInfoWrapper {
+    animation: workAni 0.5s;
+}
+.projectInfoDivWrapper {
+    animation: projAni 0.5s;
+}
+@keyframes workAni {
+    0% {
+        position: relative;
+        left: -1500px;
+    }
+    80% {
+        position: relative;
+        left: 300px;
+    }
+    100% {
+        position: relative;
+        left: 0;
+        right: 0;
+    }
+}
+@keyframes projAni {
+    0% {
+        position: relative;
+        right: -1500px;
+    }
+    80% {
+        position: relative;
+        right: 300px;
+    }
+    100% {
+        position: relative;
+        left: 0;
+        right: 0;
+    }
+}
+.workImg {
+    margin: 15px auto;
+    width: 70%;
+}
+.workImg,
+.projWindow,
+.projWindowOpened {
+    height: auto;
+    border-radius: 20px;
+    display: flex;
+    margin: 0 auto;
+    height: auto;
+    min-height: 110px;
+    width: 80%;
+}
+.projWindowOpened {
+    animation: projWindowAni 1s;
+}
+.projWindowOpened {
+    border: 1px solid black;
+    opacity: 0.5;
+}
+.projWindowOpened:hover,
+.projWindow:hover {
+    cursor: pointer;
+}
+@keyframes projWindowAni {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+.projInfoBlock {
+    display: none;
+}
+.projImgLink {
+    margin: 20px auto;
+    height: 30px;
+    width: 80px;
+    display: none;
+    text-align: center;
+    background-color: blue;
+    border-radius: 5px;
+    position: absolute;
+    line-height: 30px;
+    top: 20%;
+    left: 0;
+    right: 0;
+    color: white;
+    animation: techDivAni 1s;
+}
+
+.techDiv0 {
+    background-color: red;
+}
+.techDiv1 {
+    background-color: blue;
+}
+.techDiv2 {
+    background-color: purple;
+}
+.techDivBlock {
+    display: none;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: space-around;
+    transform: translateY(-13px);
+    position: absolute;
+    width: 100%;
+    animation: techDivAni 1s;
+}
+.techDiv {
+    margin: 0 auto;
+    width: 70%;
+    height: 25px;
+    line-height: 25px;
+    border-radius: 5px;
+}
+@keyframes techDivAni {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.projImgLink:hover {
+    box-shadow: 0 0 6px 3px rgb(178, 179, 168);
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+}
+.company,
+.projName {
+    margin: 10px 60px 10px 50px;
+    font-size: 22px;
+}
+.company {
+    text-align: left;
+}
+.projName {
+    text-align: right;
+}
+.position {
+    text-align: left;
+    font-size: 22px;
+    margin: 10px 60px 10px 50px;
+}
+.achievments,
+.responsibilities,
+.projDescr,
+.techStack {
+    font-size: 18px;
+    line-height: 22px;
+}
+.spanResp,
+.spanAchi {
+    display: block;
+    font-size: 22px;
+    text-align: left;
+    margin: 5px auto 15px 5px;
+}
+.WorkInfoBlock {
+    display: block;
+    animation: workInfoAni 1s;
+    margin: 0 5px;
+}
+.projInfoBlock {
+    animation: workInfoAni 1s;
+}
+.WorkInfoBlockHidden {
+    display: none;
+}
+.ShowMoreBtn {
+    width: 100px;
+    height: 40px;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: grey;
+    border: 1px solid black;
+}
+.ShowMoreBtn:hover {
+    box-shadow: inset 0 0 5px 3px rgb(245, 245, 242);
+}
+@keyframes workInfoAni {
+    0% {
+        opacity: 0;
+        transform: translateY(400px);
+    }
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+.textDiv {
+    display: block;
+    text-align: left;
+    margin-left: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .workInfoWrapper,
+    .projectInfoDivWrapper {
+        width: 80vw;
+        margin: 0 auto;
+        display: block;
+        grid-template-columns: none;
+        margin: 10px auto 20px auto;
+    }
+    .projName,
+    .company,
+    .position {
+        margin: 10px auto 10px auto;
+        font-size: 22px;
+        text-align: center;
+    }
+    .workImg {
+        width: 80%;
+    }
+    .responsibilities,
+    .achievments {
+        font-size: 15px;
+        line-height: 20px;
+    }
+    .ShowMoreBtn {
+        width: 80px;
+        height: 30px;
+        font-size: 14px;
+    }
+}

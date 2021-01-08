@@ -1,0 +1,299 @@
+.app #header-nav .headerDiv,
+.app #header-nav-active .headerDiv,
+.app #header-nav-active-reverse .headerDiv,
+.app #header-nav-opened .headerDiv {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+    z-index: 45;
+    min-height: 650px;
+    max-height: 780px;
+}
+#header-nav .headerDiv,
+#header-nav-active .headerDiv,
+#header-nav-active-reverse .headerDiv {
+    display: block;
+    height: 70vh;
+    background-color: #333333;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -250px;
+    min-height: 650px;
+    max-height: 780px;
+}
+#header-nav-opened .headerDiv {
+    display: block;
+    height: 70vh;
+    background-color: #333333;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    min-height: 650px;
+    max-height: 780px;
+}
+#header-nav-active .headerDiv {
+    animation: navAnimation 1.1s;
+}
+#header-nav-active-reverse .headerDiv {
+    animation: navAnimationReverse 1.1s;
+}
+.headerDiv {
+    min-width: 280px;
+}
+@keyframes navAnimation {
+    0% {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    100% {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+    }
+}
+@keyframes navAnimationReverse {
+    0% {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+    }
+    100% {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+.header-top {
+    height: 15%;
+    width: 100%;
+    border-bottom: 2px solid black;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.photo {
+    margin: 21px;
+    height: 80%;
+    width: 150px;
+    border-radius: 10px;
+    box-shadow: 0 0 30px 10px rgb(178, 179, 168);
+}
+.navigation-block {
+    padding-top: 20px;
+    z-index: 40;
+    height: 75%;
+    color: white;
+    border-bottom: 1px solid black;
+}
+.navigation-point {
+    position: relative;
+    z-index: 45;
+    text-align: left;
+    height: 10%;
+    padding: 1.5vh;
+}
+.navigation-point:hover {
+    background-color: rgb(129, 136, 140);
+}
+.navigation-point a {
+    color: white;
+    align-items: center;
+    display: flex;
+    font-size: 18px;
+}
+.navigation-point svg {
+    margin-right: 10px;
+}
+.menu-button {
+    position: absolute;
+    align-self: center;
+    right: -25px;
+    bottom: 45%;
+    height: 50px;
+    width: 50px;
+    background-color: rgb(140, 142, 120);
+    display: grid;
+    justify-content: center;
+    border: none;
+    align-content: center;
+    border-radius: 100%;
+    z-index: 50;
+}
+.menu-button:hover {
+    box-shadow: 0 0 10px 2px grey;
+}
+.menu-button svg {
+    height: 1.5rem;
+    width: 1.5rem;
+}
+.menu-bottom {
+    margin: 5% auto;
+    color: rgb(140, 142, 120);
+    font-size: 12px;
+}
+.menu-bottom-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 9%;
+}
+.authorName {
+    font-size: 16px;
+    font-style: italic;
+    margin-left: 5px;
+}
+.nameUnderInfo {
+    font-size: 30px;
+    font-style: italic;
+    color: wheat;
+    margin-left: 5px;
+    margin: 3%;
+}
+#navAni0start {
+    animation: navItemAnimation 1.8s;
+}
+#navAni1start {
+    animation: navItemAnimation 1.4s;
+}
+#navAni2start {
+    animation: navItemAnimation 1.6s;
+}
+#navAni3start {
+    animation: navItemAnimation 1.2s;
+}
+#navAni4start {
+    animation: navItemAnimation 1.8s;
+}
+@keyframes navItemAnimation {
+    0% {
+        position: relative;
+        left: -300px;
+    }
+    100% {
+        left: 0;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    #header-nav .headerDiv,
+    #header-nav-active .headerDiv,
+    #header-nav-active-reverse .headerDiv {
+        left: -250px;
+    }
+}
+@media screen and (max-width: 768px) {
+    #header-nav .headerDiv,
+    #header-nav-active .headerDiv,
+    #header-nav-active-reverse .headerDiv {
+        left: -250px;
+    }
+}
+@media screen and (max-width: 425px) {
+    #header-nav .headerDiv,
+    .app #header-nav-active .headerDiv,
+    .app #header-nav-active-reverse .headerDiv,
+    .app #header-nav-opened .headerDiv {
+        height: 80vh;
+        width: 70vw;
+    }
+    #header-nav .headerDiv,
+    #header-nav-active .headerDiv,
+    #header-nav-active-reverse .headerDiv {
+        left: -250px;
+    }
+    .menu-bottom {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .photo {
+        min-width: 115px;
+    }
+}
+@media screen and (max-width: 375px) {
+    #header-nav .headerDiv,
+    .app #header-nav-active .headerDiv,
+    .app #header-nav-active-reverse .headerDiv,
+    .app #header-nav-opened .headerDiv {
+        height: 80vh;
+        max-height: 80vh;
+        width: 70vw;
+    }
+    #header-nav .headerDiv,
+    #header-nav-active .headerDiv,
+    #header-nav-active-reverse .headerDiv {
+        left: -260px;
+    }
+}
+@media screen and (max-width: 320px) {
+    #header-nav .headerDiv,
+    .app #header-nav-active .headerDiv,
+    .app #header-nav-active-reverse .headerDiv,
+    .app #header-nav-opened .headerDiv {
+        height: 80vh;
+        max-height: 80vh;
+        width: 70vw;
+    }
+    #header-nav .headerDiv,
+    #header-nav-active .headerDiv,
+    #header-nav-active-reverse .headerDiv {
+        left: -260px;
+    }
+}
+@media screen and (max-height: 650px) {
+    #header-nav .headerDiv,
+    .app #header-nav-active .headerDiv,
+    .app #header-nav-active-reverse .headerDiv,
+    .app #header-nav-opened .headerDiv {
+        position: fixed !important;
+        height: 98vh;
+        max-height: 98vh !important;
+        min-height: 320px !important;
+    }
+    #header-nav .headerDiv,
+    #header-nav-active .headerDiv,
+    #header-nav-active-reverse .headerDiv {
+        position: fixed !important;
+    }
+    .navigation-block {
+        padding: 0;
+    }
+    .menu-bottom {
+        margin: 1%;
+    }
+    @keyframes navAnimation {
+        0% {
+            position: fixed !important;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        100% {
+            position: fixed !important;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+        }
+    }
+    @keyframes navAnimationReverse {
+        0% {
+            position: fixed !important;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+        }
+        100% {
+            position: fixed !important;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    }
+}
