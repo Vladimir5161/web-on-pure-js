@@ -149,11 +149,13 @@
 .authorName {
     font-size: 16px;
     font-style: italic;
+    font-family: "Baskerville", sans-serif !important;
     margin-left: 5px;
 }
 .nameUnderInfo {
     font-size: 30px;
     font-style: italic;
+    font-family: "Baskerville", sans-serif !important;
     color: wheat;
     margin-left: 5px;
     margin: 3%;
