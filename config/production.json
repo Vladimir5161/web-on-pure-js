@@ -1,0 +1,4 @@
+{
+    "port": 80,
+    "databaseURL": "https://vanilla-js-about-me.firebaseio.com"
+}

@@ -1,0 +1,81 @@
+#main {
+    width: 100%;
+    background-size: cover;
+    display: block;
+    min-height: 100vh;
+    height: auto;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: auto;
+    font-family: "Baskerville", sans-serif !important;
+    font-style: italic;
+}
+@keyframes main {
+    0% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+.main-div {
+    position: relative;
+    align-self: center;
+    z-index: 30;
+    width: 90%;
+    height: 100%;
+    margin: 0 auto 5vh auto;
+    animation: main 2s;
+}
+
+@keyframes h1 {
+    0% {
+        top: -60px;
+    }
+    100% {
+        top: 0;
+    }
+}
+@keyframes h1Hidden {
+    0% {
+        top: 0;
+    }
+    100% {
+        top: -60px;
+    }
+}
+.currentH1, .currentH1Hidden {
+    left: 0;
+    position: fixed;
+    z-index: 60;
+    font-family: "Baskerville", sans-serif !important;
+    font-style: italic;
+    font-size: 25px;
+    right: 0;
+    margin: 0 auto;
+    padding: 15px 0;
+    background: linear-gradient(
+0deg
+, #9999a4, transparent);
+    top: 0;
+    color: wheat;
+    box-shadow: 0 0 20px 10px rgb(178 179 168);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    animation: h1 1s;
+}
+.currentH1Hidden {
+    top: -60px;
+    animation: h1Hidden 1s;
+}
+@media screen and (max-width: 425px) {
+    .text-block {
+        padding: 7px 0;
+        font-size: 14px;
+    }
+}
+@media screen and (max-height: 675px) {
+    #main {
+        min-height: 650px !important;
+    }
+}
