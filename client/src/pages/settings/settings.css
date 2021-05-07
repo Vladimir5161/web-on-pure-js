@@ -4,7 +4,9 @@
     width: 100%;
     top: 0;
     z-index: 20;
-    background-color: rgba(102, 102, 102, 0.95);
+    background: linear-gradient(
+90deg
+, var(--gray) 0%, rgba(236,230,230,1) 50%, var(--white) 100%);
     animation: settings 1s;
 }
 .modalWindowDivRemove {
@@ -13,7 +15,9 @@
     width: 100%;
     top: 0;
     z-index: 20;
-    background-color: rgba(102, 102, 102, 0.95);
+    background: linear-gradient(
+90deg
+, var(--gray) 0%, rgba(236,230,230,1) 50%, var(--white) 100%);
     animation: settingsRemove 1s;
 }
 @keyframes settings {
