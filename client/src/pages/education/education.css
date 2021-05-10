@@ -53,7 +53,7 @@
     border: 1px solid #333; /* Параметры рамки */
 }
 
-.educationImgOpened:hover {
+.educationImgOpened:hover, .educationImgStart:hover, .educationImgClosed:hover {
     cursor: pointer;
 }
 .educationImgStart {

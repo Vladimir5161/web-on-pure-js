@@ -173,7 +173,8 @@ export class Experiance extends Basic {
         }
       });
       const projInfoBlock = document.createElement("div");
-      projInfoBlock.className = "projInfoBlock";
+      projInfoBlock.className = "projInfoBlockHidden";
+      projInfoBlock.id = "projInfoBlock";
       projInfoBlock.appendChild(projDescr);
       projInfoBlock.appendChild(techStack);
 
@@ -217,7 +218,7 @@ let observer = new MutationObserver((mutationRecords) => {
         if (workInfoBlock.className === "WorkInfoBlock") {
           workInfoBlock.className = "WorkInfoBlockHidden";
         } else {
-          const openedInfo = main.querySelector(".WorkInfoBlock");
+          const openedInfo = i.querySelector(".WorkInfoBlock");
           if (openedInfo) {
             openedInfo.className = "WorkInfoBlockHidden";
           }
@@ -249,14 +250,21 @@ let observer = new MutationObserver((mutationRecords) => {
     }
     const projects = main.querySelectorAll(".projectInfoDiv");
     for (let i of projects) {
-      const projInfoBlock = i.querySelector(".projInfoBlock");
-      const setShowWorkInfo = () => {
-        projInfoBlock.style.display =
-          projInfoBlock.style.display === "block" ? "none" : "block";
-      };
+      const projInfoBlock = i.querySelector("#projInfoBlock");
       const showMore = i.querySelector(".ShowMoreBtn");
+      const setShowProjInfo = () => {
+        if (projInfoBlock.className === "projInfoBlock") {
+          projInfoBlock.className = "projInfoBlockHidden";
+        } else {
+          const openedInfo = i.querySelector(".projInfoBlock");
+          if (openedInfo) {
+            openedInfo.className = "projInfoBlockHidden";
+          }
+          projInfoBlock.className = "projInfoBlock";
+        }
+      };
       showMore.addEventListener("click", () => {
-        setShowWorkInfo();
+        setShowProjInfo();
       });
     }
   }
