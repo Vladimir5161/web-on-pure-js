@@ -1,7 +1,6 @@
 .workExpBlock,
 .myProjectsBlock {
   margin: 0 auto;
-  color: black;
   min-height: 50vh;
   max-width: 90vw;
 }
