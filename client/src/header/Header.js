@@ -1,21 +1,14 @@
 import "./header.css";
+import Basic from "../pages/Basic";
 
-export class Menu {
+export class Menu extends Basic {
     static renderMenu() {
-        const headerTop = document.createElement("div");
-        headerTop.className = "header-top";
-        const nameUnderInfo = document.createElement("div");
-        nameUnderInfo.className = "nameUnderInfo";
-        nameUnderInfo.innerText = "My Resume"
-        const menuButton = document.createElement("button");
-        menuButton.className = "menu-button";
-        const buttonIcon = document.createElement("span");
-        buttonIcon.className =
-            "iconify icon:feather:align-justify icon-inline:false";
-        const nav = document.createElement("nav");
-        nav.className = "navigation-block";
-        const ul = document.createElement("ul");
-        ul.className = "nav flex-column";
+        const headerTop = this.createElement("div", "header-top");
+        const nameUnderInfo = this.createElement("div", "nameUnderInfo", "My Resume");
+        const menuButton = this.createElement("button", "menu-button");
+        const buttonIcon = this.createElement("span", "iconify icon:feather:align-justify icon-inline:false");
+        const nav = this.createElement("nav", "navigation-block");
+        const ul = this.createElement("ul", "nav flex-column");
         const icons = [
             {
                 class: "iconify icon:feather:home icon-inline:false",
@@ -41,56 +34,45 @@ export class Menu {
 
 
         icons.map((item) => {
-            const li = document.createElement("li");
-            let itemAni = icons.indexOf(item)
-            li.className = `nav-item navigation-point navAni${itemAni}`;
-            const a = document.createElement("a");
-            a.className = "nav-link";
+            const itemAni = icons.indexOf(item)
+            const li = this.createElement("li", `nav-item navigation-point navAni${itemAni}`);
+            const a = this.createElement("a", "nav-link");
             Object.assign(a, {
                 href: "#",
             });
-            const span = document.createElement("span");
-            span.className = item.class;
-
-            a.appendChild(span);
-            const p = document.createElement("p");
-            p.innerText = item.name;
+            const span = this.createElement("span", item.class);
+            const p = this.createElement("p", null, item.name);
+            a.appendChild(span)
             a.appendChild(p);
             li.appendChild(a);
             ul.appendChild(li);
         });
-        const createdBy = document.createElement("div");
-        createdBy.className = "menu-bottom";
-
-        createdBy.innerText = "Created by";
-        const spanName = document.createElement("span");
-        spanName.className = "authorName";
-        spanName.innerText = "Vladimir Vagaev";
-        createdBy.appendChild(spanName);
+        const createdByWrapper = this.createElement("div", "menu-bottom-div");
+        const createdBy = this.createElement("div", "menu-bottom", "Created by");
+        const spanName = this.createElement("span", "authorName", "Vladimir Vagaev");
+        const header = this.createElement("div", "headerDiv");
         nav.appendChild(ul);
         headerTop.appendChild(nameUnderInfo);
-        const header = document.createElement("div");
         menuButton.appendChild(buttonIcon);
-        const createdByDiv = document.createElement("div");
-        createdByDiv.className = "menu-bottom-div";
-        createdByDiv.appendChild(createdBy)
-        header.className = "headerDiv";
+        createdBy.appendChild(spanName);
+        createdByWrapper.appendChild(createdBy)
         header.appendChild(headerTop);
         header.appendChild(menuButton);
         header.appendChild(nav);
-        header.appendChild(createdByDiv);
+        header.appendChild(createdByWrapper);
         return header.outerHTML;
     }
 }
 
 const observeItem = document.querySelector(".app");
 let observer = new MutationObserver((mutationRecords) => {
-    mutationRecords[0].addedNodes[0].className === "main-div";
-    const device = window.innerHeight > window.innerWidth;
-    device
-        ? (observeItem.querySelectorAll(".header-top").className = "header-top")
-        : (observeItem.querySelectorAll(".header-top").className =
-              "header-top-horizontal");
+    if (mutationRecords[0].addedNodes[0].className === "main-div") {
+        const device = window.innerHeight > window.innerWidth;
+        device
+            ? (observeItem.querySelectorAll(".header-top").className = "header-top")
+            : (observeItem.querySelectorAll(".header-top").className =
+                "header-top-horizontal");
+    }
 });
 
 observer.observe(observeItem, {
