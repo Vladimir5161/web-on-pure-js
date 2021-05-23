@@ -1,6 +1,7 @@
 const path = require("path");
 const HTMLPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const config = require("config");
 
 module.exports = {
     entry: "./src/index.js",
@@ -14,10 +15,10 @@ module.exports = {
         historyApiFallback: true,
         proxy: {
             "/images": {
-                target: "http://localhost:5000",
+                target: config.get("apiURL"),
             },
             "/api": {
-                target: "http://localhost:5000",
+                target: config.get("apiURL"),
             },
         },
     },
@@ -33,6 +34,6 @@ module.exports = {
                 test: /\.css$/i,
                 use: ["style-loader", "css-loader"],
             },
-        ],
+        ]
     },
 };

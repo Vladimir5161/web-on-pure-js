@@ -1,5 +1,5 @@
-import "../public/common/reset.css";
 import "./main.css";
+import "./reset.css";
 import "./app.css";
 import { Skill } from "./pages/skills/Skill";
 import { Education } from "./pages/education/Education";
@@ -26,7 +26,6 @@ let observer = new MutationObserver((mutationRecords) => {
     const openMenu = () => {
       changeHeaderId("header-nav-active");
       let Item1 = header.querySelector(".navAni0");
-      console.log(Item1);
       Item1.id = "navAni0start";
       let Item2 = header.querySelector(".navAni1");
       Item2.id = "navAni1start";
@@ -123,7 +122,7 @@ let observer = new MutationObserver((mutationRecords) => {
         } else if (element.textContent === "My skills") {
           changePathname("/mySkills", htmlSkills);
         } else if (element.textContent === "Settings") {
-          const modalWindow = main.querySelector(".modalWindowDiv");
+          const modalWindow = main.querySelector(".modalWrapper");
           if (main.contains(modalWindow)) {
             Settings.closeModal(), CloseMenuFunc();
           } else {
