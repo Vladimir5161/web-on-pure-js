@@ -3,11 +3,7 @@ import Basic from "../Basic";
 
 export class AboutMe extends Basic {
     static async renderAboutPage(contactsArr) {
-        const H1 = document.createElement("h1");
-        H1.className = "title";
-        H1.textContent = "Vladimir Vagaev";
-        const dateBrth = document.createElement("h1");
-        dateBrth.className = "title dateBrth";
+        const H1 = this.createElement("h1", "title", "Vladimir Vagaev");
         // logic with will count my current age
         const myDirthDate = new Date("1993-11-05");
         const dateBrthYears =
@@ -18,66 +14,42 @@ export class AboutMe extends Basic {
                     ? dateBrthYears
                     : dateBrthYears - 1
                 : dateBrthYears - 1;
-        dateBrth.textContent = `Date of Birth(Age): 05.11.1993(${correctFullYears})`;
+        const dateBrth = this.createElement("h1", "title dateBrth", `Date of Birth(Age): 05.11.1993(${correctFullYears})`);
         //
-        const h1Row = document.createElement("div");
-        h1Row.className = "h1Row";
+        const h1Row = this.createElement("div", "h1Row");
         h1Row.appendChild(H1);
         h1Row.appendChild(dateBrth);
-        const row = document.createElement("div");
-        row.className = "row";
-        const img = document.createElement("img");
-        const is = "/images/me.jpg";
-        Object.assign(img, {
-            className: "blockImage",
-            alt: "",
-            src: is,
-        });
-        const img2 = document.createElement("img");
-        const im = "/images/me.jpg";
-        Object.assign(img2, {
-            className: "blockImageSmall",
-            alt: "",
-            src: im,
-        });
-        const textBlock = document.createElement("div");
-        textBlock.className = "text-block";
-        textBlock.textContent = `Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio labore sit
-        ullam, ipsa delectus dicta aut in voluptatibus hic ex dolore voluptates sint cumque quas omnis
-        tempore? Voluptatibus, sit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium
-        delectus placeat laborum, libero beatae velit minus veniam ducimus quam totam veritatis rerumLorem ipsum dolor sit amet consectetur adipisicing elit. A odio labore sit
-        ullam, ipsa delectus dicta aut in voluptatibus hic ex dolore voluptates sint cumque quas omnis
-        tempore? Voluptatibus, sit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium
-        delectus placeat laborum, libero beatae velit minus veniam ducimus quam totam veritatis rerum
+        const row = this.createElement("div", "row");
+        const imgBig = this.createElement("img", "blockImage", null, "https://vanilla-js-back-end.web.app/images/me.jpg");
+        const imgSmall = this.createElement("img", "blockImageSmall", null, "https://vanilla-js-back-end.web.app/images/me.jpg");
+        const textContent = `Lorem ipsum dolor sit amet consectetur adipisicing elit. A odio labore sit
+            ullam, ipsa delectus dicta aut in voluptatibus hic ex dolore voluptates sint cumque quas omnis
+            tempore? Voluptatibus, sit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium
+            delectus placeat laborum, libero beatae velit minus veniam ducimus quam totam veritatis rerumLorem ipsum dolor sit amet consectetur adipisicing elit. A odio labore sit
+            ullam, ipsa delectus dicta aut in voluptatibus hic ex dolore voluptates sint cumque quas omnis
+            tempore? Voluptatibus, sit. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium
+            delectus placeat laborum, libero beatae velit minus veniam ducimus quam totam veritatis rerum
        `;
-
-        row.appendChild(img);
-        row.appendChild(img2);
+        const textBlock = this.createElement("div", "text-block", textContent);
+        row.appendChild(imgBig);
+        row.appendChild(imgSmall);
         row.appendChild(textBlock);
 
         // here we will create my contact icons
-        const contacts = document.createElement("div");
-        contacts.className = "contacts";
+        const contacts = this.createElement("div", "contacts");
         for (let item in contactsArr) {
             const objKey = item;
             const objVal = contactsArr[item];
-            const contact = document.createElement("a");
+            const contact = this.createElement("a",  "contactStart");
             Object.assign(contact, {
-                className: "contactStart",
                 href: typeof objVal === "number" ? `tel:+${objVal}` : objVal,
                 target: "_blank",
             });
-            const contactImg = document.createElement("img");
-            const ib = `/images/${objKey}.png`;
-            Object.assign(contactImg, {
-                className: "contactImg",
-                src: ib,
-            });
+            const contactImg = this.createElement("img", "contactImg", null, `https://vanilla-js-back-end.web.app/images/${objKey}.png`);
             contact.appendChild(contactImg);
             contacts.appendChild(contact);
         }
-        const div = document.createElement("div");
-        div.className = "main-div";
+        const div = this.createElement("div", "main-div");
         div.appendChild(h1Row);
         div.appendChild(row);
         div.appendChild(contacts);

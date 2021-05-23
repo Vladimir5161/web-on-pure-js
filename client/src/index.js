@@ -1,5 +1,6 @@
-import "../public/common/reset.css";
+import { initializeApp } from "firebase/app";
 import "./main.css";
+import "./reset.css";
 import "./app.css";
 import { Skill } from "./pages/skills/Skill";
 import { Education } from "./pages/education/Education";
@@ -8,12 +9,26 @@ import { Settings } from "./pages/settings/Settings";
 import { AboutMe } from "./pages/aboutMe/AboutMe";
 import { Menu } from "./header/Header";
 
+// Initialize Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyARm3eQd7JoJG_WXjWana6vK8vB-Kk3hHE",
+  authDomain: "vanilla-js-about-me.firebaseapp.com",
+  databaseURL: "https://vanilla-js-about-me.firebaseio.com",
+  projectId: "vanilla-js-about-me",
+  storageBucket: "vanilla-js-about-me.appspot.com",
+  messagingSenderId: "41552739446",
+  appId: "1:41552739446:web:9e9a6699bc5885cf9d7357",
+  measurementId: "G-25LQZRM069"
+};
+initializeApp(firebaseConfig);
+
 let header = document.getElementById("header-nav");
 let main = document.getElementById("main");
 let htmlMenu = async () => {
   const result = await Menu.renderMenu();
   header.innerHTML = result;
 };
+
 htmlMenu();
 const observeItem = header;
 
@@ -26,7 +41,6 @@ let observer = new MutationObserver((mutationRecords) => {
     const openMenu = () => {
       changeHeaderId("header-nav-active");
       let Item1 = header.querySelector(".navAni0");
-      console.log(Item1);
       Item1.id = "navAni0start";
       let Item2 = header.querySelector(".navAni1");
       Item2.id = "navAni1start";
@@ -123,7 +137,7 @@ let observer = new MutationObserver((mutationRecords) => {
         } else if (element.textContent === "My skills") {
           changePathname("/mySkills", htmlSkills);
         } else if (element.textContent === "Settings") {
-          const modalWindow = main.querySelector(".modalWindowDiv");
+          const modalWindow = main.querySelector(".modalWrapper");
           if (main.contains(modalWindow)) {
             Settings.closeModal(), CloseMenuFunc();
           } else {
@@ -136,7 +150,7 @@ let observer = new MutationObserver((mutationRecords) => {
 
     const setTheme = async (theme) => {
       if (theme === "black") {
-        main.style.backgroundImage = 'url("/images/night.jpg")';
+        main.style.backgroundImage = 'url("https://vanilla-js-back-end.web.app/images/night.jpg")';
         main.style.color = "white";
         const WorkExpBlock = main.querySelectorAll(".workExpBlock");
         for (let item of WorkExpBlock) {
@@ -159,7 +173,7 @@ let observer = new MutationObserver((mutationRecords) => {
           item.style.color = "rgba(0,0,0, 0.9)";
         }
       } else {
-        main.style.backgroundImage = 'url("/images/nebo.jpg")';
+        main.style.backgroundImage = 'url("https://vanilla-js-back-end.web.app/images/nebo.jpg")';
         main.style.color = "black";
         const WorkExpBlock = main.querySelectorAll(".workExpBlock");
         for (let item of WorkExpBlock) {

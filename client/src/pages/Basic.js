@@ -9,7 +9,6 @@ export default class Basic {
                     },
                 });
                 const res = await result.json();
-                console.log(res);
                 return res;
             } catch (e) {
                 console.log("calling api error: ", e.message);
@@ -28,5 +27,15 @@ export default class Basic {
                 console.log("calling api error: ", e.message);
             }
         }
+    }
+    static createElement(element, className, textContent, src, id) {
+        const tag = document.createElement(element);
+        Object.assign(tag, {
+            ...(className && {className}),
+            ...(id && {id}),
+            ...(src && {src}),
+            ...(textContent && {textContent})
+        });
+        return tag;
     }
 }

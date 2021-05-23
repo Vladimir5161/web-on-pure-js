@@ -3,6 +3,9 @@ const HTMLPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
+    node: {
+        fs: 'empty'
+    },
     entry: "./src/index.js",
     output: {
         filename: "bundle.[chunkhash].js",
@@ -25,7 +28,7 @@ module.exports = {
         new HTMLPlugin({
             template: "./public/index.html",
         }),
-        new CleanWebpackPlugin(),
+        new CleanWebpackPlugin()
     ],
     module: {
         rules: [
@@ -33,6 +36,6 @@ module.exports = {
                 test: /\.css$/i,
                 use: ["style-loader", "css-loader"],
             },
-        ],
+        ]
     },
 };
