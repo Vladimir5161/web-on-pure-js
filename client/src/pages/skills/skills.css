@@ -43,7 +43,10 @@
     align-content: center;
     justify-content: center;
     backface-visibility: visible;
-    -moz-backface-visibility: hidden;
+    -moz-backface-visibility: visible;
+}
+.skillDivContent {
+    backface-visibility: hidden;
 }
 .skillDivContentBack {
     transform: rotateY(180deg) !important;
@@ -82,7 +85,7 @@
     animation: skillDivAnimation 1.5s;
     transform-style: preserve-3d;
     backface-visibility: visible;
-    -moz-backface-visibility: hidden;
+    -moz-backface-visibility: visible;
 }
 .skillDivAnimationRotate {
     animation: skillDivAnimationRotate 1.5s;

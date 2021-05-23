@@ -1,21 +1,21 @@
 .workExpBlock,
-.myProjectsBlock {
+.myprojectectsBlock {
   margin: 0 auto;
   min-height: 50vh;
-  max-width: 90vw;
+  max-width: 80vw;
 }
 .H1 {
-  font-size: 26px;
+  font-size: 40px;
   font-weight: 700;
   margin: 15px auto;
 }
-.ImageDiv {
+.imageWrapper {
   position: relative;
   margin: 20px auto;
   display: grid;
 }
 .workInfoWrapper,
-.projectInfoDivWrapper {
+.projectectInfoWrapper {
   display: block;
   margin: 10px auto 20px auto;
   justify-content: center;
@@ -23,12 +23,12 @@
 .workInfo {
   position: relative;
 }
-.projectInfoDiv,
+.projectectInfoDiv,
 .workInfoWrapper {
   animation: workAni 0.5s;
 }
-.projectInfoDivWrapper {
-  animation: projAni 0.5s;
+.projectectInfoWrapper {
+  animation: projectAni 0.5s;
 }
 @keyframes workAni {
   0% {
@@ -45,7 +45,7 @@
     right: 0;
   }
 }
-@keyframes projAni {
+@keyframes projectAni {
   0% {
     position: relative;
     right: -1500px;
@@ -61,8 +61,8 @@
   }
 }
 .workImg,
-.projWindow,
-.projWindowOpened {
+.projectWindow,
+.projectWindowOpened {
   height: auto;
   border-radius: 20px;
   display: flex;
@@ -76,17 +76,17 @@
   margin: 15px auto;
   width: 80%;
 }
-.projWindowOpened {
-  animation: projWindowAni 1s;
+.projectWindowOpened {
+  animation: projectWindowAni 1s;
   margin: 0 auto;
   border: 1px solid black;
   opacity: 0.5;
 }
-.projWindowOpened:hover,
-.projWindow:hover {
+.projectWindowOpened:hover,
+.projectWindow:hover {
   cursor: pointer;
 }
-@keyframes projWindowAni {
+@keyframes projectWindowAni {
   0% {
     opacity: 1;
   }
@@ -94,10 +94,10 @@
     opacity: 0.5;
   }
 }
-.projInfoBlock {
+.projectInfoBlock {
   display: none;
 }
-.projImgLink {
+.projectImgLink {
   margin: 20px auto;
   height: 30px;
   width: 80px;
@@ -152,31 +152,31 @@
     opacity: 1;
   }
 }
-.projImgLink:hover {
+.projectImgLink:hover {
   box-shadow: 0 0 6px 3px rgb(178, 179, 168);
   cursor: pointer;
   text-decoration: none;
   color: white;
 }
 .company,
-.projName {
-  margin: 10px 60px 10px 50px;
-  font-size: 22px;
+.projectName {
+  margin: 20px 60px 10px 50px;
+  font-size: 20px;
 }
 .company {
   text-align: left;
 }
-.projName {
+.projectName {
   text-align: right;
 }
 .position {
   text-align: left;
-  font-size: 22px;
-  margin: 10px 60px 10px 50px;
+  font-size: 20px;
+  margin: 20px 60px 10px 50px;
 }
 .achievments,
 .responsibilities,
-.projDescr,
+.projectDescr,
 .techStack {
   font-size: 18px;
   line-height: 22px;
@@ -188,7 +188,7 @@
   text-align: left;
   margin: 5px auto 15px 5px;
 }
-.WorkInfoBlock, .projInfoBlock {
+.workInfoBlock, .projectInfoBlock {
   display: block;
   animation: workInfoAni 1s;
   margin: 0 5px;
@@ -202,13 +202,13 @@
     max-height: 0vh;
   }
 }
-.WorkInfoBlockHidden, .projInfoBlockHidden {
+.workInfoBlockHidden, .projectInfoBlockHidden {
   animation: workInfoAniHidden 1s;
   overflow: hidden;
   margin: 0 5px;
   max-height: 0vh;
 }
-.ShowMoreBtn {
+.showMoreBtn {
   width: 100px;
   height: 40px;
   margin: 0 auto;
@@ -218,7 +218,7 @@
   border-left-color: rgb(170, 168, 168);
   border-top-color: rgb(170, 168, 168);
 }
-.ShowMoreBtn:hover {
+.showMoreBtn:hover {
   box-shadow: inset 0 0 5px 2px rgb(245, 245, 242);
 }
 @keyframes workInfoAni {
@@ -237,18 +237,18 @@
 
 @media screen and (max-width: 768px) {
   .workInfoWrapper,
-  .projectInfoDivWrapper {
+  .projectectInfoWrapper {
     width: 80vw;
     margin: 0 auto;
     display: block;
     grid-template-columns: none;
     margin: 10px auto 20px auto;
   }
-  .projName,
+  .projectName,
   .company,
   .position {
-    margin: 10px auto 10px auto;
-    font-size: 22px;
+    margin: 20px auto 10px auto;
+    font-size: 20px;
     text-align: center;
   }
   .responsibilities,
@@ -256,17 +256,17 @@
     font-size: 15px;
     line-height: 20px;
   }
-  .ShowMoreBtn {
+  .showMoreBtn {
     width: 85px;
     height: 30px;
     font-size: 14px;
   }
 }
 @media screen and (max-width: 740px) {
-  .projWindow {
+  .projectWindow {
     max-width: 75vw;
   }
-  .projWindowOpened {
+  .projectWindowOpened {
     max-width: 75vw;
   }
 }

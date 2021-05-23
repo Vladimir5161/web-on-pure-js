@@ -1,0 +1,6 @@
+./node_modules
+.firebase
+.idea
+build
+./functions/ui-debug.log
+./functions/firebase-debug.log

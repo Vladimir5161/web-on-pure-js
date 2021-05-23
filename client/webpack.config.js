@@ -3,6 +3,9 @@ const HTMLPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
+    node: {
+        fs: 'empty'
+    },
     entry: "./src/index.js",
     output: {
         filename: "bundle.[chunkhash].js",
@@ -14,10 +17,10 @@ module.exports = {
         historyApiFallback: true,
         proxy: {
             "/images": {
-                target: "http://localhost:5000",
+                target: "http://localhost:5001",
             },
             "/api": {
-                target: "http://localhost:5000",
+                target: "http://localhost:5001",
             },
         },
     },
@@ -25,7 +28,7 @@ module.exports = {
         new HTMLPlugin({
             template: "./public/index.html",
         }),
-        new CleanWebpackPlugin(),
+        new CleanWebpackPlugin()
     ],
     module: {
         rules: [
@@ -33,6 +36,17 @@ module.exports = {
                 test: /\.css$/i,
                 use: ["style-loader", "css-loader"],
             },
-        ],
+            {
+                test: /\.m?js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['@babel/preset-env'],
+                        plugins: ['@babel/plugin-proposal-class-properties']
+                    }
+                }
+            }
+        ]
     },
 };

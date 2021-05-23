@@ -3,42 +3,17 @@ import "./education.css";
 
 export class Education extends Basic {
   static renderEducation(educationArray) {
-    const divEducations = document.createElement("div");
-    divEducations.className = "educations";
-    const currentH1 = document.createElement("div");
-    currentH1.className = "currentH1";
-    currentH1.id = "H1";
-    currentH1.innerText = "My education";
-    const educationId = document.createElement("div");
-    educationId.id = "education";
-
+    const divEducations = this.createElement("div", "educations");
+    const currentH1 = this.createElement("div", "currentH1", "My education", null, "H1");
+    const education = this.createElement("div", null, null, null, "education");
     educationArray.map((item) => {
-      const edu = document.createElement("div");
-      edu.className = "educationBlockStart";
-      const educationName = document.createElement("div"); // name
-      educationName.className = "educationName";
-      educationName.innerText = item.name;
-      const educationText = document.createElement("div"); // text
-      educationText.className = "educationText";
-      educationText.innerText = item.text;
-
-      const educationImageBlock = document.createElement("div");
-      educationImageBlock.className = "educationImageBlock";
-      const educationImg = document.createElement("img");
-      educationImg.className = "educationImg";
-
-      Object.assign(educationImg, {
-        src: item.src,
-      });
-      const educationImgDiv = document.createElement("div");
-      educationImgDiv.className = "educationImgDivClosed";
-      educationImgDiv.id = "educationImgDiv";
-      const educationImgStart = document.createElement("img");
-      educationImgStart.className = "educationImgClosed";
-      educationImgStart.id = "educationImgClosed";
-      Object.assign(educationImgStart, {
-        src: item.src,
-      });
+      const edu = this.createElement("div", "educationBlockStart");
+      const educationName = this.createElement("div", "educationName", item.name);
+      const educationText = this.createElement("div", "educationText", item.text);
+      const educationImageBlock = this.createElement("div", "educationImageBlock");
+      const educationImg = this.createElement("img", "educationImg" ,null, this.getImageURl(item.src));
+      const educationImgDiv = this.createElement("div", "educationImgDivClosed", null, null, "educationImgDiv");
+      const educationImgStart = this.createElement("img", "educationImgClosed", null,  this.getImageURl(item.src), "educationImgClosed");
       educationImgDiv.appendChild(educationImgStart);
       educationImageBlock.appendChild(educationImg);
       educationImageBlock.appendChild(educationImgDiv);
@@ -47,10 +22,10 @@ export class Education extends Basic {
       if (item.src !== "") {
         edu.appendChild(educationImageBlock);
       }
-      educationId.appendChild(edu);
+      education.appendChild(edu);
     });
     divEducations.appendChild(currentH1);
-    divEducations.appendChild(educationId);
+    divEducations.appendChild(education);
 
     return divEducations;
   }

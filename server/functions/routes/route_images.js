@@ -1,6 +1,5 @@
 const { Router } = require("express");
 const router = Router();
-const fs = require("fs");
 const path = require("path");
 
 const getData = (url) => {
@@ -12,10 +11,7 @@ const getData = (url) => {
 router.get("*", async (req, res) => {
     let name = getData(req.url);
     const image = path.join(
-        path.resolve("client"),
-        "public",
-        "common",
-        "images",
+        path.resolve("assets"),
         `${name}`
     );
     try {

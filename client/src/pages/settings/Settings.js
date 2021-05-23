@@ -1,38 +1,24 @@
 import "./settings.css";
+import Basic from "../Basic";
 
-export class Settings {
+export class Settings extends Basic {
   static openModal() {
-    const Modal = document.createElement("div");
-    Modal.className = "modalWindowDiv";
-    const modalWindow = document.createElement("div");
-    modalWindow.className = "modalWindow";
-    Modal.appendChild(modalWindow);
-
-    const modalText = document.createElement("div");
-    modalText.className = "modalText";
-    modalText.innerText = "Choose Theme";
-
-    const buttonYes = document.createElement("button");
-    buttonYes.className = "buttonYes";
-    buttonYes.innerText = "Black";
-    const buttonNo = document.createElement("button");
-    buttonNo.className = "buttonNo";
-    buttonNo.innerText = "White";
-
+    const modalWrapper = this.createElement("div", "modalWrapper");
+    const modalWindow = this.createElement("div", "modalWindow");
+    const modalText = this.createElement("div", "modalText", "Choose Theme");
+    const buttonYes = this.createElement("button", "buttonYes",  "Black");
+    const buttonNo = this.createElement("button", "buttonNo", "White");
+    const buttonsBlock = this.createElement("div", "buttonsBlock");
+    modalWrapper.appendChild(modalWindow);
     modalWindow.appendChild(modalText);
-
-    const buttonsBlock = document.createElement("div");
-    buttonsBlock.className = "buttonsBlock";
     buttonsBlock.appendChild(buttonYes);
     buttonsBlock.appendChild(buttonNo);
-
     modalWindow.appendChild(buttonsBlock);
-
-    main.appendChild(Modal);
+    main.appendChild(modalWrapper);
   }
   static closeModal() {
-    const modal = main.querySelector(".modalWindowDiv");
-    modal.className = "modalWindowDivRemove";
+    const modal = main.querySelector(".modalWrapper");
+    modal.className = "modalWrapperRemove";
     setTimeout(() => {
       modal.remove();
     }, 1000);
@@ -43,14 +29,14 @@ const observeItem = main;
 let observer = new MutationObserver((mutationRecords) => {
   if (
     mutationRecords[0].addedNodes[0] &&
-    mutationRecords[0].addedNodes[0].className === "modalWindowDiv"
+    mutationRecords[0].addedNodes[0].className === "modalWrapper"
   ) {
     const buttonYes = observeItem.querySelector(".buttonYes");
     const setCurrentTheme = (currTheme) => {
       localStorage.setItem("theme", JSON.stringify(currTheme)); //saving a string ref to a  last opened page without changing page's hash to a local storage
     };
     buttonYes.addEventListener("mousedown", () => {
-      main.style.backgroundImage = 'url("/images/night.jpg")';
+      main.style.backgroundImage = `url(${Basic.getImageURl('night.jpg')})`;
       main.style.color = "white";
       const WorkExpBlock = main.querySelectorAll(".workExpBlock");
       for (let item of WorkExpBlock) {
@@ -61,7 +47,7 @@ let observer = new MutationObserver((mutationRecords) => {
     });
     const buttonNo = observeItem.querySelector(".buttonNo");
     buttonNo.addEventListener("mousedown", () => {
-      main.style.backgroundImage = 'url("/images/nebo.jpg")';
+      main.style.backgroundImage = `url(${Basic.getImageURl('day.jpg')})`;
       main.style.color = "black";
       const WorkExpBlock = main.querySelectorAll(".workExpBlock");
       for (let item of WorkExpBlock) {

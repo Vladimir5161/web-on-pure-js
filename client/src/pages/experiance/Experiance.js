@@ -3,100 +3,59 @@ import Basic from "../Basic";
 
 export class Experiance extends Basic {
   static renderExperiance(projects, works) {
-    const experianceDiv = document.createElement("div");
-    experianceDiv.className = "experianceDiv";
-    const currentH1 = document.createElement("div");
-    currentH1.className = "currentH1";
-    currentH1.id = "H1";
-    currentH1.innerText = "My current Experiance";
-    const experianceId = document.createElement("div");
-    experianceId.id = "experiance";
-    const exp = document.createElement("div");
-    exp.className = "expDivBlock";
-    const workExpBlock = document.createElement("div"); // block of works
-    workExpBlock.className = "workExpBlock";
-    const myProjectsBlock = document.createElement("div"); // block of projects
-    myProjectsBlock.className = "myProjectsBlock";
-
-    const WorkExp = document.createElement("div");
-    WorkExp.className = "H1";
-    WorkExp.innerText = "My work experiance";
-    const MyProj = document.createElement("div");
-    MyProj.classList = "H1";
-    MyProj.innerText = "My projects";
-    exp.appendChild(WorkExp);
+    const experianceWrapper = this.createElement("div", "experianceWrapper");
+    const currentH1 = this.createElement("div", "currentH1", "My current Experiance", null, "H1");
+    const experiance = this.createElement("div", null,null,null, "experiance");
+    const exp = this.createElement("div", "expDivBlock");
+    const workExpBlock = this.createElement("div", "workExpBlock");
+    const myProjectsBlock = this.createElement("div", "myProjectsBlock");
+    const workExp = this.createElement("div", "H1", "My work experiance");
+    const myProj = this.createElement("div", "H1", "My projects");
+    exp.appendChild(workExp);
     exp.appendChild(workExpBlock);
-    exp.appendChild(MyProj);
+    exp.appendChild(myProj);
     exp.appendChild(myProjectsBlock);
 
     ///////////////////////////// Works Block
     works.map((item) => {
-      const company = document.createElement("div");
-      company.className = "company";
-      company.innerText = `Company: ` + item.company;
-
-      const position = document.createElement("div");
-      position.className = "position";
-      position.innerText = `Position: ` + item.position;
-
-      const responsibilities = document.createElement("div");
-      responsibilities.className = "responsibilities";
-      const spanResp = document.createElement("span");
-      spanResp.className = "spanResp";
-      spanResp.innerText = `Responsibilities: `;
+      const company = this.createElement("div", "company", `Company: ` + item.company);
+      const position = this.createElement("div", "position",  `Position: ` + item.position);
+      const responsibilities = this.createElement("div", "responsibilities");
+      const spanResp = this.createElement("span", "spanResp", `Responsibilities: `);
       responsibilities.appendChild(spanResp);
 
       const array1 = item.responsibilities.split("--");
       array1.map((text) => {
         if (text) {
-          const textDiv = document.createElement("p");
-          textDiv.className = "textDiv";
-          textDiv.textContent = `- ` + text;
+          const textDiv = this.createElement("p", "textDiv", `- ` + text);
           responsibilities.appendChild(textDiv);
         }
       });
 
-      const achievments = document.createElement("div");
-      achievments.className = "achievments";
-      const spanAchi = document.createElement("span");
-      spanAchi.className = "spanAchi";
-      spanAchi.innerText = `Achievments: `;
-      achievments.appendChild(spanAchi);
+      const achievments = this.createElement("div", "achievments");
+      const spanAchiev = this.createElement("span", "spanAchiev", `Achievments: `);
+      achievments.appendChild(spanAchiev);
 
-      const array2 = item.achievments.split("--");
-      array2.map((text) => {
+      const techArray = item.achievments.split("--");
+      techArray.map((text) => {
         if (text) {
-          const textDiv = document.createElement("p");
-          textDiv.className = "textDiv";
-          textDiv.textContent = `- ` + text;
+          const textDiv = this.createElement("p","textDiv", `- ` + text);
           achievments.appendChild(textDiv);
         }
       });
 
-      const workInfo = document.createElement("div");
-      workInfo.className = "workInfo";
-      const workInfoWrapper = document.createElement("div");
-      workInfoWrapper.className = "workInfoWrapper";
+      const workInfo = this.createElement("div", "workInfo");
+      const workInfoWrapper = this.createElement("div", "workInfoWrapper");
+      const workImg = this.createElement("img", "workImg", null, item.img);
+      const workInfoBlock = this.createElement("div", "workInfoBlockHidden", null, null,  "workInfoBlock");
+      const showMoreBtn = this.createElement("button", "showMoreBtn", "Show Info");
       workInfo.appendChild(workInfoWrapper);
-      const workImg = document.createElement("img");
-      Object.assign(workImg, {
-        className: "workImg",
-        src: item.img,
-      });
-      const WorkInfoBlock = document.createElement("div");
-      WorkInfoBlock.className = "WorkInfoBlockHidden";
-      WorkInfoBlock.id = "WorkInfoBlock";
-      WorkInfoBlock.appendChild(responsibilities);
-      WorkInfoBlock.appendChild(achievments);
-
-      const ShowMoreBtn = document.createElement("button");
-      ShowMoreBtn.className = "ShowMoreBtn";
-      ShowMoreBtn.innerText = "Show Info";
+      workInfoBlock.appendChild(responsibilities);
+      workInfoBlock.appendChild(achievments);
 
       workImg.onload = workInfoWrapper.appendChild(workImg);
-      workInfoWrapper.appendChild(WorkInfoBlock);
-      workInfo.appendChild(ShowMoreBtn);
-
+      workInfoWrapper.appendChild(workInfoBlock);
+      workInfo.appendChild(showMoreBtn);
       workExpBlock.appendChild(company);
       workExpBlock.appendChild(position);
       workExpBlock.appendChild(workInfo);
@@ -105,97 +64,63 @@ export class Experiance extends Basic {
     ///////////////////////// Projects Block
 
     projects.map((proj) => {
-      const projName = document.createElement("div");
-      projName.className = "projName";
-      projName.innerText = `Project Name: ` + proj.projName;
-      const ImageDiv = document.createElement("div");
-      const projImgLink = document.createElement("a");
-      projImgLink.id = "projImgLink";
-      Object.assign(projImgLink, {
-        className: "projImgLink",
+      const projectName = this.createElement("div", "projectName", `Project Name: ` + proj.projectName);
+      const imageWrapper = this.createElement("div", "imageWrapper");
+      const projectImgLink = this.createElement("a", "projectImgLink", null, null ,"projectImgLink");
+      Object.assign(projectImgLink, {
         href: proj.projLink,
       });
-      const projWindow = document.createElement("img");
-      projWindow.id = "projWindow";
-      Object.assign(projWindow, {
-        className: "projWindow",
-        src: proj.img,
-      });
-      projWindow.onload = ImageDiv.appendChild(projWindow);
-      projImgLink.innerText = "Open";
-      ImageDiv.className = "ImageDiv";
-      ImageDiv.appendChild(projImgLink);
-
-      const techDivBlock = document.createElement("div");
-      techDivBlock.className = "techDivBlock";
+      const projectWindow = this.createElement("img", "projectWindow", "Open", this.getImageURl(proj.img) ,"projectWindow");
+      projectWindow.onload = imageWrapper.appendChild(projectWindow);
+      const techDivBlock = this.createElement("div", "techDivBlock");
       for (let i = 0; i < proj.arr.length; i++) {
-        const techDiv = document.createElement("div");
-        techDiv.className = `techDiv techDiv${i}`;
-        techDiv.innerText = proj.arr[i];
+        const techDiv = this.createElement("div", `techDiv techDiv${i}`, proj.arr[i]);
         techDivBlock.appendChild(techDiv);
       }
-      ImageDiv.appendChild(techDivBlock);
-
-      const projectInfoDiv = document.createElement("div");
-      projectInfoDiv.className = "projectInfoDiv";
-
-      const projDescr = document.createElement("div");
-      projDescr.className = "projDescr";
-      const spanResp = document.createElement("span");
-      spanResp.className = "spanResp";
-      spanResp.innerText = `Description: `;
-      projDescr.appendChild(spanResp);
+      const projectInfoDiv = this.createElement("div", "projectInfoDiv");
+      const projectDescription = this.createElement("div", "projectDescription");
+      const spanResp = this.createElement("span", "spanResp", `Description: `);
+      imageWrapper.appendChild(projectImgLink);
+      imageWrapper.appendChild(techDivBlock);
+      projectDescription.appendChild(spanResp);
 
       const array1 = proj.description.split("--");
       array1.map((text) => {
         if (text) {
-          const textDiv = document.createElement("p");
-          textDiv.className = "textDiv";
-          textDiv.textContent = `- ` + text;
-          projDescr.appendChild(textDiv);
+          const textDiv = this.createElement("p", "textDiv",  `- ` + text);
+          projectDescription.appendChild(textDiv);
         }
       });
 
-      const techStack = document.createElement("div");
-      techStack.className = "techStack";
-      const spanAchi = document.createElement("span");
-      spanAchi.className = "spanAchi";
-      spanAchi.innerText = `Technology Stack: `;
-      techStack.appendChild(spanAchi);
+      const techStack = this.createElement("div", "techStack");
+      const spanAchiev = this.createElement("span", "spanAchiev", `Technology Stack: `);
+      techStack.appendChild(spanAchiev);
 
-      const array2 = proj.techStack.split("--");
-      array2.map((text) => {
+      const techArray = proj.techStack.split("--");
+      techArray.map((text) => {
         if (text) {
-          const textDiv = document.createElement("p");
-          textDiv.className = "textDiv";
-          textDiv.textContent = `- ` + text;
+          const textDiv = this.createElement("p",  "textDiv", `- ` + text);
           techStack.appendChild(textDiv);
         }
       });
-      const projInfoBlock = document.createElement("div");
-      projInfoBlock.className = "projInfoBlockHidden";
-      projInfoBlock.id = "projInfoBlock";
-      projInfoBlock.appendChild(projDescr);
-      projInfoBlock.appendChild(techStack);
+      const projectInfoBlock = this.createElement("div","projectInfoBlockHidden", null, null,"projectInfoBlock");
+      projectInfoBlock.appendChild(projectDescription);
+      projectInfoBlock.appendChild(techStack);
 
-      const projectInfoDivWrapper = document.createElement("div");
-      projectInfoDivWrapper.className = "projectInfoDivWrapper";
+      const projectInfoWrapper = this.createElement("div", "projectInfoWrapper");
 
-      projectInfoDivWrapper.appendChild(ImageDiv);
-      projectInfoDivWrapper.appendChild(projInfoBlock);
-      const ShowMoreBtn = document.createElement("button");
-      ShowMoreBtn.className = "ShowMoreBtn";
-      ShowMoreBtn.innerText = "Show Info";
-      projectInfoDiv.appendChild(projectInfoDivWrapper);
-      projectInfoDiv.appendChild(ShowMoreBtn);
-
-      myProjectsBlock.appendChild(projName);
+      projectInfoWrapper.appendChild(imageWrapper);
+      projectInfoWrapper.appendChild(projectInfoBlock);
+      const showMoreBtn = this.createElement("button", "showMoreBtn",  "Show Info");
+      projectInfoDiv.appendChild(projectInfoWrapper);
+      projectInfoDiv.appendChild(showMoreBtn);
+      myProjectsBlock.appendChild(projectName);
       myProjectsBlock.appendChild(projectInfoDiv);
     });
-    experianceId.appendChild(exp);
-    experianceDiv.appendChild(currentH1);
-    experianceDiv.appendChild(experianceId);
-    return experianceDiv;
+    experiance.appendChild(exp);
+    experianceWrapper.appendChild(currentH1);
+    experianceWrapper.appendChild(experiance);
+    return experianceWrapper;
   }
   static async render() {
     const projects = await this.getContentApi("projects");
@@ -207,42 +132,41 @@ export class Experiance extends Basic {
 
 const observeItem = main.querySelector(".wrapper");
 let observer = new MutationObserver((mutationRecords) => {
-  const render = main.querySelectorAll(".experianceDiv");
-  console.log(mutationRecords[0].addedNodes[0]);
-  if (mutationRecords[0].addedNodes[0].className === "experianceDiv") {
+  const render = main.querySelectorAll(".experianceWrapper");
+  if (mutationRecords[0].addedNodes[0].className === "experianceWrapper") {
     const WorkInfo = main.querySelectorAll(".workInfo");
     for (let i of WorkInfo) {
-      const showMore = i.querySelector(".ShowMoreBtn");
-      const workInfoBlock = i.querySelector("#WorkInfoBlock");
+      const showMore = i.querySelector(".showMoreBtn");
+      const workInfoBlock = i.querySelector("#workInfoBlock");
       const setShowWorkInfo = () => {
-        if (workInfoBlock.className === "WorkInfoBlock") {
-          workInfoBlock.className = "WorkInfoBlockHidden";
+        if (workInfoBlock.className === "workInfoBlock") {
+          workInfoBlock.className = "workInfoBlockHidden";
         } else {
-          const openedInfo = i.querySelector(".WorkInfoBlock");
+          const openedInfo = i.querySelector(".workInfoBlock");
           if (openedInfo) {
-            openedInfo.className = "WorkInfoBlockHidden";
+            openedInfo.className = "workInfoBlockHidden";
           }
-          workInfoBlock.className = "WorkInfoBlock";
+          workInfoBlock.className = "workInfoBlock";
         }
       };
       showMore.addEventListener("click", () => {
         setShowWorkInfo();
       });
     }
-    const projectsImages = main.querySelectorAll(".ImageDiv");
+    const projectsImages = main.querySelectorAll(".imageWrapper");
     for (let i of projectsImages) {
-      const ProjImage = i.querySelector("#projWindow");
+      const ProjImage = i.querySelector("#projectWindow");
       const ProjInfo = i.querySelector(".techDivBlock");
-      const projImgLink = i.querySelector("#projImgLink");
+      const projectImgLink = i.querySelector("#projectImgLink");
       const SetProjOpen = () => {
         ProjImage.className =
-          ProjImage.className === "projWindowOpened"
-            ? "projWindow"
-            : "projWindowOpened";
+          ProjImage.className === "projectWindowOpened"
+            ? "projectWindow"
+            : "projectWindowOpened";
         ProjInfo.style.display =
-          ProjImage.className === "projWindowOpened" ? "grid" : "none";
-        projImgLink.style.display =
-          ProjImage.className === "projWindowOpened" ? "block" : "none";
+          ProjImage.className === "projectWindowOpened" ? "grid" : "none";
+        projectImgLink.style.display =
+          ProjImage.className === "projectWindowOpened" ? "block" : "none";
       };
       ProjImage.addEventListener("click", () => {
         SetProjOpen();
@@ -250,17 +174,17 @@ let observer = new MutationObserver((mutationRecords) => {
     }
     const projects = main.querySelectorAll(".projectInfoDiv");
     for (let i of projects) {
-      const projInfoBlock = i.querySelector("#projInfoBlock");
-      const showMore = i.querySelector(".ShowMoreBtn");
+      const projectInfoBlock = i.querySelector("#projectInfoBlock");
+      const showMore = i.querySelector(".showMoreBtn");
       const setShowProjInfo = () => {
-        if (projInfoBlock.className === "projInfoBlock") {
-          projInfoBlock.className = "projInfoBlockHidden";
+        if (projectInfoBlock.className === "projectInfoBlock") {
+          projectInfoBlock.className = "projectInfoBlockHidden";
         } else {
-          const openedInfo = i.querySelector(".projInfoBlock");
+          const openedInfo = i.querySelector(".projectInfoBlock");
           if (openedInfo) {
-            openedInfo.className = "projInfoBlockHidden";
+            openedInfo.className = "projectInfoBlockHidden";
           }
-          projInfoBlock.className = "projInfoBlock";
+          projectInfoBlock.className = "projectInfoBlock";
         }
       };
       showMore.addEventListener("click", () => {
